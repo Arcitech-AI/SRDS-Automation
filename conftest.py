@@ -23,8 +23,7 @@ def Invoke_Browser(request):
     #     'production': 'https://proschool.ai/'
     # }
     # return urls.get(env, urls['validation'])
-    # driver.get("https://proschool.ai/")
-    # time.sleep(5)
+    time.sleep(5)
     driver.get("https://qat.srds.ai/")
     driver.implicitly_wait(50)
     driver.maximize_window()
@@ -36,6 +35,7 @@ def Invoke_Browser(request):
     driver.quit()
 
 
+@pytest.mark.skip
 @pytest.mark.hookwrapper
 def pytest_runtest_makereport(item):
     pytest_html = item.config.pluginmanager.getplugin('html')
@@ -55,5 +55,6 @@ def pytest_runtest_makereport(item):
         report.extra = extra
 
 
+@pytest.mark.skip
 def _capture_screenshot(name):
     driver.get_screenshot_as_file(name)

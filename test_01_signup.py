@@ -1,6 +1,5 @@
 import os
 import time
-
 import pytest
 
 from selenium.webdriver.support.ui import Select
@@ -12,14 +11,9 @@ from selenium.webdriver.support.wait import WebDriverWait
 from Object.homepage import Paths
 from Utilities.baseclass import *
 from testdata.testcase_data import *
-# from Data import Data
 
 
 class TestSignUp(Baseclass):
-
-    @pytest.fixture(params=Data.getTestData("../testcases/usernames.xlsx"))
-    def username_field(request):
-        return request.param
 
     def test_check_url(self):
         log = self.getLogger()
@@ -50,8 +44,11 @@ class TestSignUp(Baseclass):
 
         obj.signup_otp_confirm_btn().click()
 
+    @pytest.fixture(params=Data.getTestData("../testcases/usernames.xlsx"))
+    def username_field(request):
+        return request.param
+
     @pytest.fixture(scope="class", autouse=True)
     def setup_and_teardown(self):
         yield
-
         self.driver.quit()
