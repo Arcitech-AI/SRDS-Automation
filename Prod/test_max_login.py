@@ -49,10 +49,10 @@ class TestLogin(Baseclass):
                     otp_inp.send_keys(str(otp))
                 obj.final_login_btn().click()
                 time.sleep(2)
-                print(f"Successfully signed up with email: {email}")
+                print(f"Successfully login with email: {email}")
 
             except Exception as e:
-                print(f"Error during signup for {user_data['user_name']}: {str(e)}")
+                print(f"Error during login for {user_data['user_name']}: {str(e)}")
 
             finally:
                 # Close browser after each iteration
