@@ -24,12 +24,12 @@ class TestSignUp(Baseclass):
         obj = Paths(self.driver)
         obj.start_button().click()
         obj.signup_button().click()
-        time.sleep(2)
+        time.sleep(1)
         obj.role_option().click()
         obj.select_role().click()
-        time.sleep(2)
+        time.sleep(1)
         obj.select_signup_option().click()
-        time.sleep(5)
+        time.sleep(1)
         obj.enter_email().send_keys(username_field['user_name'])
         obj.click_code_button().click()
 
@@ -43,9 +43,11 @@ class TestSignUp(Baseclass):
             otp_inp.send_keys(str(otp))
 
         obj.signup_otp_confirm_btn().click()
+        self.driver.quit()
+        time.sleep(2)
 
     @pytest.fixture(params=Data.getTestData("../testcases/usernames.xlsx"))
-    def username_field(request):
+    def username_field(self, request):
         return request.param
 
     @pytest.fixture(scope="class", autouse=True)
