@@ -23,7 +23,6 @@ class TestLogin(Baseclass):
 
         for user_data in test_data:
             try:
-                # Initialize driver for each iteration
                 options = Options()
                 options.add_experimental_option("detach", True)
                 options.add_argument('ignore-certificate-errors')
@@ -31,7 +30,7 @@ class TestLogin(Baseclass):
 
                 service_obj = Service()
                 self.driver = webdriver.Chrome(service=service_obj, options=options)
-                self.driver.get("https://qat.srds.ai/")
+                self.driver.get("https://srds.ai/")
                 self.driver.maximize_window()
                 self.driver.implicitly_wait(10)
 
@@ -39,7 +38,9 @@ class TestLogin(Baseclass):
                 obj.start_button().click()
                 obj.login_verification_code().click()
                 email = user_data['user_name']
+                self.getLogger().info(f"Login with email: {email}")
                 obj.enter_email().send_keys(email)
+                # obj.enter_email().send_keys("omkarhundre+031@arcitech.ai")
                 obj.click_code_button().click()
                 otp_sequence = [2, 8, 0, 5, 9, 9]
                 otp_inputs = obj.enter_code()
@@ -47,15 +48,15 @@ class TestLogin(Baseclass):
                 for otp_inp, otp in zip(otp_inputs, otp_sequence):
                     time.sleep(0.2)
                     otp_inp.send_keys(str(otp))
+
                 obj.final_login_btn().click()
-                time.sleep(2)
+                time.sleep(10)
                 print(f"Successfully login with email: {email}")
 
             except Exception as e:
                 print(f"Error during login for {user_data['user_name']}: {str(e)}")
 
             finally:
-                # Close browser after each iteration
                 if hasattr(self, 'driver'):
                     self.driver.quit()
-                time.sleep(2)  # Wait before starting next iteration
+                time.sleep(2)

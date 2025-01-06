@@ -24,7 +24,7 @@ def Invoke_Browser(request):
     # }
     # return urls.get(env, urls['validation'])
     time.sleep(5)
-    driver.get("https://qat.srds.ai/")
+    driver.get("https://srds.ai/")
     driver.implicitly_wait(50)
     driver.maximize_window()
     time.sleep(1)
