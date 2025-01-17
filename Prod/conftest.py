@@ -15,6 +15,7 @@ def Invoke_Browser(request):
     options.add_experimental_option("detach", True)
     options.add_argument('ignore-certificate-errors')
     options.add_argument("--disable-application-cache")
+    options.add_argument("--incognito")
     service_obj = Service()
     driver = webdriver.Chrome(service=service_obj, options=options)
     # env = request.config.getoption('--env', default='validation')
@@ -24,7 +25,7 @@ def Invoke_Browser(request):
     # }
     # return urls.get(env, urls['validation'])
     time.sleep(5)
-    driver.get("https://srds.ai/")
+    driver.get("https://qat.srds.ai/")
     driver.implicitly_wait(50)
     driver.maximize_window()
     time.sleep(1)
@@ -35,7 +36,7 @@ def Invoke_Browser(request):
     driver.quit()
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 @pytest.mark.hookwrapper
 def pytest_runtest_makereport(item):
     pytest_html = item.config.pluginmanager.getplugin('html')
@@ -55,6 +56,6 @@ def pytest_runtest_makereport(item):
         report.extra = extra
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def _capture_screenshot(name):
     driver.get_screenshot_as_file(name)

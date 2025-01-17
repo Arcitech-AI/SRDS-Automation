@@ -11,9 +11,11 @@ class Paths:
     click_button = (By.XPATH, "//a[normalize-space()='Login']")
     click_signup = (By.XPATH, "//a[normalize-space()='Sign up']")
     click_role_option = (By.XPATH, "//div[@id='role-select']")
-    click_option_role = (By.XPATH, "//li[normalize-space()='I am a Teacher']")
+    click_teacher_option_role = (By.XPATH, "//li[normalize-space()='I am a Teacher']")
+    click_student_option_role = (By.XPATH, "//li[normalize-space()='I am a Student']")
     click_signup_option = (By.XPATH, "//p[normalize-space()='Sign Up with Verification Code']")
     click_enter_email = (By.XPATH, "//input[@name='email']")
+    click_error_message = (By.XPATH, "//div[@class='signup-input edit-email']/div/p")
     click_code = (By.XPATH, "//button[normalize-space()='Send Code']")
     click_enter_code = (By.XPATH, "//div[@label='6-Digit Code']/div/div/input")
     otp_confirmation = (By.XPATH, "//button[normalize-space()='Sign Up']")
@@ -34,14 +36,20 @@ class Paths:
     def role_option(self):
         return self.driver.find_element(*Paths.click_role_option)
 
-    def select_role(self):
-        return self.driver.find_element(*Paths.click_option_role)
+    def select_teacher_role(self):
+        return self.driver.find_element(*Paths.click_teacher_option_role)
+
+    def select_student_role(self):
+        return self.driver.find_element(*Paths.click_student_option_role)
 
     def select_signup_option(self):
         return self.driver.find_element(*Paths.click_signup_option)
 
     def enter_email(self):
         return self.driver.find_element(*Paths.click_enter_email)
+
+    def show_validation_message(self):
+        return self.driver.find_element(*Paths.click_error_message)
 
     def click_code_button(self):
         return self.driver.find_element(*Paths.click_code)

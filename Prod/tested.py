@@ -1,6 +1,11 @@
 # import os
 # import time
+#
+# import pandas as pd
 # import pytest
+# import os
+#
+# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 #
 # from concurrent.futures import ThreadPoolExecutor
 # from selenium.webdriver.support.ui import Select
@@ -100,21 +105,24 @@
 #                 pass
 #
 #
-# def main(read_excel_data, signup_user):
+# def main():
+#     # Create an instance of TestSignUp (no need to pass driver if it is initialized in Baseclass)
+#     signup_test = TestSignUp()
+#
 #     # Read emails from Excel
-#     email_list = read_excel_data()
+#     email_list = signup_test.read_excel_data()
 #     if not email_list:
 #         print("No emails found to process")
 #         return
 #
 #     # Use ThreadPoolExecutor for concurrent signup
-#     with ThreadPoolExecutor(max_workers=10) as executor:  # Adjust the number of workers as needed
-#         executor.map(signup_user, email_list)
+#     with ThreadPoolExecutor(max_workers=100) as executor:  # Adjust the number of workers as needed
+#         # Pass signup_test.signup_user method to the executor
+#         executor.map(lambda email: signup_test.signup_user(email), email_list)
 #
 #
 # if __name__ == "__main__":
 #     main()
-
 
 import pytest
 import os
