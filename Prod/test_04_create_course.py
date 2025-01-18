@@ -146,3 +146,5 @@ class TestCreateCourse(Baseclass):
         obj.save_image().click()
         time.sleep(10)
         obj.complete_course_button().click()
+
+

@@ -98,6 +98,17 @@ class Paths:
     course_final_button = (By.XPATH, "//div[@class='create-course-enhance-course-folder']//button["
                                      "@type='submit'][normalize-space()='Create Course']")
 
+    # Edit Course
+    course_edit_button = (By.XPATH, "//button[@class='view-course-details-edit-and-share-folder']")
+    course_edit_course_name = (By.XPATH, "//input[@name='name']")
+    course_edit_level_start_dropdown = (By.XPATH,
+                                        "(//body[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]")
+    course_edit_level_start_list = (By.XPATH, "//li[normalize-space()='Grade 2']")
+    course_edit_level_end_dropdown = (By.XPATH,
+                                      "/html[1]/body[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]")
+    course_edit_level_end_list = (By.XPATH, "//li[normalize-space()='Corporate']")
+    course_edit_submit = (By.XPATH, "(//button[normalize-space()='Update and Publish'])[1]")
+
     # sign up functions
 
     def start_button(self):
@@ -288,3 +299,26 @@ class Paths:
 
     def complete_course_button(self):
         return self.driver.find_element(*Paths.course_final_button)
+
+    # Edit Course
+
+    def edit_button(self):
+        return self.driver.find_element(*Paths.course_edit_button)
+
+    def edit_course_name(self):
+        return self.driver.find_element(*Paths.course_edit_course_name)
+
+    def edit_level_start_dropdown(self):
+        return self.driver.find_element(*Paths.course_edit_level_start_dropdown)
+
+    def edit_level_start_list(self):
+        return self.driver.find_elements(*Paths.course_edit_level_start_list)
+
+    def edit_level_end_dropdown(self):
+        return self.driver.find_element(*Paths.course_edit_level_end_dropdown)
+
+    def edit_level_end_list(self):
+        return self.driver.find_elements(*Paths.course_edit_level_end_list)
+
+    def edit_submit_btn(self):
+        return self.driver.find_element(*Paths.course_edit_submit)
