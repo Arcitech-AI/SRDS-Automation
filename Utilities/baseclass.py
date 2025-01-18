@@ -6,8 +6,7 @@ import tensorflow as tf
 
 from selenium.webdriver.common.by import By
 
-
-# from Production.currentdate import get_current_date
+from Prod.current_date_time import get_current_date
 
 
 def generate_sequential_email(base="omkarhundre", domain="arcitech.ai", start=850):
@@ -59,3 +58,31 @@ class Baseclass:
         logger.addHandler(fileHandler)  # filehandler object
         logger.setLevel(logging.DEBUG)
         return logger
+
+    def next_button(self):
+        return self.driver.find_element(By.XPATH, "//div[4]//div[3]//button[1]")
+
+    def next_button2(self):
+        return self.driver.find_element(By.XPATH, "//div[4]//div[3]//button[2]")
+
+    def back_button(self):
+        return self.driver.find_element(By.XPATH, "//div[4]//div[3]//button[1]")
+
+    def logout_button(self):
+        return self.driver.find_element(By.XPATH, "//ul[@role='menu']/li[2]")
+
+    def open_profile(self):
+        return self.driver.find_element(By.XPATH, "//div[@class='profile-wrapper']/div/div")
+
+    def visible_error_msg(self):
+        return self.driver.find_element(By.XPATH, "//div[@class='FieldError-container']/span/span[@role='alert']")
+
+    def scroll_down(self, x, y):
+        return self.driver.execute_script("window.scrollBy(arguments[0], arguments[1]);", x, y)
+
+    def scroll_up(self, x, y):
+        return self.driver.execute_script("window.scrollBy(arguments[0], arguments[1]);", x, y)
+
+    def select_current_date(self):
+        current_year, current_month, current_day = get_current_date()
+        return str(current_day)

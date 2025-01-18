@@ -13,14 +13,14 @@ from Utilities.baseclass import *
 from testdata.testcase_data import *
 
 
-class TestSignUp(Baseclass):
+class TestSignUpStudent(Baseclass):
 
     def test_check_url(self):
         log = self.getLogger()
         log.info("----- %s -----" % self.get_url())
         assert "https://qat.srds.ai/" == self.get_url()
 
-    def test_empty_username(self):
+    def test_teacher_empty_username(self):
         obj = Paths(self.driver)
         obj.start_button().click()
         obj.signup_button().click()
@@ -33,7 +33,7 @@ class TestSignUp(Baseclass):
         obj.enter_email().click()
         assert "Enter Email"
 
-    def test_negative_signup(self, username_field):
+    def test_teacher_negative_signup(self, username_field):
         obj = Paths(self.driver)
         self.clear_field(obj.enter_email())
         obj.enter_email().send_keys(username_field['user_name'])
@@ -41,7 +41,7 @@ class TestSignUp(Baseclass):
         assert "Please enter" in showing_error_msg
         time.sleep(0.2)
 
-    def test_positive_signup(self):
+    def test_teacher_positive_signup(self):
         obj = Paths(self.driver)
         last_email = get_last_teacher_email_index()
         if last_email:
