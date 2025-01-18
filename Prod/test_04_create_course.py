@@ -42,6 +42,8 @@ class TestCreateCourse(Baseclass):
         time.sleep(2)
         self.getLogger().info(f"Login attempt successful with email: {file_data}")
 
+    # create a course
+
     def test_create_course(self):
         obj = Paths(self.driver)
         time.sleep(2)
