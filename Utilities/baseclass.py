@@ -86,3 +86,159 @@ class Baseclass:
     def select_current_date(self):
         current_year, current_month, current_day = get_current_date()
         return str(current_day)
+
+    def lesson_right_arrow(self):
+        return self.driver.find_element(By.XPATH, "//i[@class='fa-solid fa-arrow-right']")
+
+    def lesson_proceed_button(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Proceed']")
+
+    def add_new_assignment(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Assignment']")
+
+    def add_new(self):
+        return self.driver.find_element(By.XPATH, "//div[@id='add-assignment']")
+
+    def add_new_assignment_1(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Assignment 1']")
+
+    def add_new_assignment_2(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Assignment 2']")
+
+    def add_new_assignment_3(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Assignment 3']")
+
+    def add_new_assignment_4(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Assignment 4']")
+
+    def add_new_assignment_5(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Assignment 5']")
+
+    def pop_up_assignment(self):
+        return self.driver.find_element(By.XPATH, "//div[@id='add-assignment']")
+
+    def assignment_name(self):
+        return self.driver.find_element(By.XPATH, "//div[@class='MuiFormControl-root MuiTextField-root "
+                                                  "custom-text-field css-i44wyl']/div/input")
+
+    def assignment_timer_add(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='+']")
+
+    def assignment_type_dropdown(self):
+        return self.driver.find_element(By.XPATH, "//div[@role='combobox']")
+
+    def assignment_create_button(self):
+        return self.driver.find_element(By.XPATH, "//button[@type='submit']//img")
+
+    def mcq(self):
+        return self.driver.find_element(By.XPATH, "//li[normalize-space()='Multiple Choice Questions']")
+
+    def tf(self):
+        return self.driver.find_element(By.XPATH, "//li[normalize-space()='True/False']")
+
+    def fitb(self):
+        return self.driver.find_element(By.XPATH, "//li[normalize-space()='Fill-In-The-Blanks']")
+
+    def short(self):
+        return self.driver.find_element(By.XPATH, "//li[normalize-space()='Short-Answer-Questions']")
+
+    def essay(self):
+        return self.driver.find_element(By.XPATH, "//li[normalize-space()='Essay-Questions']")
+
+    def mixed(self):
+        return self.driver.find_element(By.XPATH, "//li[normalize-space()='Mixed Questions']")
+
+    def assignment_right_arrow_1(self):
+        return self.driver.find_element(By.XPATH, "(//i[@data-tooltip-id='update-plugin'])[2]")
+
+    def assignment_right_arrow_2(self):
+        return self.driver.find_element(By.XPATH, "(//i[@data-tooltip-id='update-plugin'])[3]")
+
+    def assignment_right_arrow_3(self):
+        return self.driver.find_element(By.XPATH, "(//i[@data-tooltip-id='update-plugin'])[4]")
+
+    def assignment_right_arrow_4(self):
+        return self.driver.find_element(By.XPATH, "(//i[@data-tooltip-id='update-plugin'])[5]")
+
+    def assignment_right_arrow_5(self):
+        return self.driver.find_element(By.XPATH, "(//i[@data-tooltip-id='update-plugin'])[6]")
+
+    def assignment_right_arrow_6(self):
+        return self.driver.find_element(By.XPATH, "(//i[@data-tooltip-id='update-plugin'])[7]")
+
+    def assignment_save_button(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Save']")
+
+    def assignment_rubric_continue_btn(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Continue']")
+
+    def all_page(self):
+        return self.driver.find_element(By.XPATH, "//div[@class='App']")
+
+    def back_to_lesson(self):
+        return self.driver.find_element(By.XPATH, "//span[normalize-space()='Lesson Generator']")
+
+    def back_to_course(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Back to Course']")
+
+    def back_to_dashboard(self):
+        return self.driver.find_element(By.XPATH, "//img[@alt='logo']")
+
+    def add_lesson2(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Add Lesson']")
+
+    def edit_assignment2(self):
+        return self.driver.find_element(By.XPATH, "(//button[@type='button'][normalize-space()='Preview Lesson'])[1]")
+
+    def select_assignment1(self):
+        return self.driver.find_element(By.XPATH, "//div[@class='assignment-item']")
+
+    def input_assignment_prompt(self):
+        return self.driver.find_element(By.XPATH, "//textarea[@id='lesson_promote_flexible']")
+
+    def left_body(self):
+        return self.driver.find_element(By.XPATH, "//div[@class='lesson_generator_body_sec_left_body'] ")
+
+    def right_body(self):
+        return self.driver.find_element(By.XPATH, "//div[@class='lesson_generator_body_sec_right_body']")
+
+    def cut_chatbot(self):
+        return self.driver.find_element(By.XPATH, "//i[@class='fa-solid fa-x']")
+
+    def back_to_dashboard(self):
+        return self.driver.find_element(By.XPATH, "//span[normalize-space()='Back']")
+
+    def preview_lesson(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Preview Lesson']")
+
+    def edit_lesson(self):
+        return self.driver.find_element(By.XPATH, "//span[normalize-space()='Manual Testing']")
+
+    def write_lesson(self):
+        return self.driver.find_element(By.XPATH, "//p[@class='editor-paragraph ltr']")
+
+    def back_to_lesson(self):
+        return self.driver.find_element(By.XPATH, "//span[normalize-space()='Back']")
+
+    def remove_to_chatbot(self):
+        return self.driver.find_element(By.XPATH,
+                                        "//div[@id='chatbot-widget-message-bubbles-container']/button[@id='chatbot-widget-messages-close-icon']/img")
+
+    def delete_to_lesson(self):
+        return self.driver.find_element(By.XPATH, "//i[@class='fa-solid fa-trash']")
+
+    def edit_to_course(self):
+        return self.driver.find_element(By.XPATH, "//button[@class='view-course-details-edit-and-share-folder']")
+
+    def edit_to_description(self):
+        return self.driver.find_element(By.XPATH, "//button[@class='Course-description-inner-ai-feilds']")
+
+    def edit_to_update_course(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Update and Publish']")
+
+    def delete_option_course(self):
+        return self.driver.find_element(By.XPATH,
+                                        "//div[@class='created-my-courses-container']//div[1]//div[2]//div[1]//div[2]//div[1]//i[1]")
+
+    def delete_to_course(self):
+        return self.driver.find_element(By.XPATH, "//p[normalize-space()='Delete']")

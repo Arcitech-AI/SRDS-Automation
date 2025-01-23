@@ -109,6 +109,27 @@ class Paths:
     course_edit_level_end_list = (By.XPATH, "//li[normalize-space()='Corporate']")
     course_edit_submit = (By.XPATH, "(//button[normalize-space()='Update and Publish'])[1]")
 
+    # Add Lesson
+    lesson_new_add = (By.XPATH, "//button[normalize-space()='Create Lesson']")
+    lesson_new_lesson_name = (By.XPATH, "//div[@class='MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root "
+                                        "custom-text-field css-feqhe6']/div/input")
+    lesson_enter_prompt = (By.XPATH, "//div[@class='promote_part_sec']/div/div/textarea[@name='chat_query']")
+
+    # Add Assignment
+    assignment_type_list = (By.XPATH, "//div[@role='presentation']/div/ul")
+    assignment_generator_left_body = (By.XPATH, "//div[@class='lesson_generator_body_sec_left_body']")
+
+    # Edit assignment
+
+    # edit_assignment1 = (By.XPATH, "//div[@class='editor-input']/h3")
+    edit_assignment1 = (By.XPATH, "// div[ @ role = 'textbox']")
+
+    # Delete assignment
+
+    select_assignment = (By.XPATH, "(//div[@class='assignments_count_details'])[1]")
+    delete_assignment1 = (By.XPATH, "(//i[@class='fa-solid fa-trash'])[1]")
+    delete_confirm = (By.XPATH, "//button[normalize-space()='Delete']")
+
     # sign up functions
 
     def start_button(self):
@@ -322,3 +343,36 @@ class Paths:
 
     def edit_submit_btn(self):
         return self.driver.find_element(*Paths.course_edit_submit)
+
+    # Add Lesson
+
+    def add_lesson(self):
+        return self.driver.find_element(*Paths.lesson_new_add)
+
+    def enter_lesson_name(self):
+        return self.driver.find_element(*Paths.lesson_new_lesson_name)
+
+    def enter_prompt_for_lesson(self):
+        return self.driver.find_element(*Paths.lesson_enter_prompt)
+
+    def assignment_list(self):
+        return self.driver.find_elements(*Paths.assignment_type_list)
+
+    def generator_left_body(self):
+        return self.driver.find_element(*Paths.assignment_generator_left_body)
+
+    # Edit assignment
+
+    def edit_assignment(self):
+        return self.driver.find_element(*Paths.edit_assignment1)
+
+    # Delete assignment
+
+    def delete_select_assignment(self):
+        return self.driver.find_element(*Paths.select_assignment)
+
+    def delete_assignment(self):
+        return self.driver.find_element(*Paths.delete_assignment1)
+
+    def confirm_delete_assignment(self):
+        return self.driver.find_element(*Paths.delete_confirm)

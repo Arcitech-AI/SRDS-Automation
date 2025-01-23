@@ -9,6 +9,7 @@ from Utilities.baseclass import *
 
 class TestCreateCourse(Baseclass):
 
+    # Existing Teacher Login
     def test_teacher_login(self):
         obj = Paths(self.driver)
         obj.start_button().click()
@@ -147,4 +148,357 @@ class TestCreateCourse(Baseclass):
         time.sleep(10)
         obj.complete_course_button().click()
 
+    # Create a Lesson
 
+    def test_add_lesson(self):
+        obj = Paths(self.driver)
+        self.scroll_down(0, 200)
+        time.sleep(3)
+        obj.add_lesson().click()
+        obj.enter_lesson_name().send_keys("Manual Testing")
+        self.scroll_down(0, 500)
+        obj.enter_prompt_for_lesson().send_keys("Create a lesson on Manual Testing in 5 lines")
+        time.sleep(2)
+        obj.enter_prompt_for_lesson().send_keys(Keys.ENTER)
+        time.sleep(15)
+        self.lesson_right_arrow().click()
+        self.lesson_proceed_button().click()
+
+    """ create a Assignment """
+    """ create a mcq assignment """
+    def test_add_mcq(self):
+        obj = Paths(self.driver)
+        time.sleep(2)
+        self.scroll_up(1000, 0)
+        time.sleep(10)
+        self.add_new_assignment().click()
+        self.pop_up_assignment().click()
+        self.scroll_down(0, 500)
+        self.assignment_name().send_keys("MCQ")
+        self.assignment_timer_add().click()
+        self.assignment_type_dropdown().send_keys(Keys.ENTER)
+        time.sleep(1)
+        self.mcq().click()
+        time.sleep(1)
+        self.clear_field(self.input_assignment_prompt())
+        time.sleep(2)
+        self.input_assignment_prompt().send_keys("Create 1 question for assignment.")
+        self.assignment_create_button().click()
+        time.sleep(15)
+        obj.generator_left_body()
+        self.scroll_down(0, 700)
+        self.assignment_right_arrow_1().click()
+        time.sleep(1)
+        self.assignment_save_button().click()
+
+    """ create a true or false assignment"""
+
+    def test_add_tf(self):
+        obj = Paths(self.driver)
+        # time.sleep(1)
+        # self.scroll_up(1000, 0)
+        time.sleep(2)
+        self.add_new_assignment_1().click()
+        time.sleep(2)
+        self.add_new().click()
+        time.sleep(2)
+        self.assignment_rubric_continue_btn().click()
+        self.scroll_down(0, 700)
+        self.assignment_name().send_keys("TF")
+        self.assignment_timer_add().click()
+        self.assignment_type_dropdown().send_keys(Keys.ENTER)
+        time.sleep(1)
+        self.tf().click()
+        time.sleep(1)
+        self.clear_field(self.input_assignment_prompt())
+        time.sleep(2)
+        self.input_assignment_prompt().send_keys("Create 1 question for assignment.")
+        self.assignment_create_button().click()
+        time.sleep(15)
+        obj.generator_left_body()
+        self.scroll_down(0, 700)
+        self.assignment_right_arrow_2().click()
+        time.sleep(1)
+        self.assignment_save_button().click()
+
+    """ create a fill in the blanks assignment """
+
+    def test_add_fitb(self):
+        obj = Paths(self.driver)
+        # time.sleep(1)
+        # self.scroll_up(1000, 0)
+        # time.sleep(2)
+        self.add_new_assignment_2().click()
+        time.sleep(2)
+        self.add_new().click()
+        time.sleep(2)
+        # self.assignment_rubric_continue_btn().click()
+        self.scroll_down(0, 700)
+        self.assignment_name().send_keys("FITB")
+        self.assignment_timer_add().click()
+        self.assignment_type_dropdown().send_keys(Keys.ENTER)
+        time.sleep(1)
+        self.fitb().click()
+        time.sleep(1)
+        self.clear_field(self.input_assignment_prompt())
+        time.sleep(2)
+        self.input_assignment_prompt().send_keys("Create 1 question for assignment.")
+        self.assignment_create_button().click()
+        time.sleep(15)
+        obj.generator_left_body()
+        self.scroll_down(0, 700)
+        self.assignment_right_arrow_3().click()
+        time.sleep(1)
+        self.assignment_save_button().click()
+
+    """ create a short answer assignment """
+
+    def test_add_short(self):
+        obj = Paths(self.driver)
+        time.sleep(1)
+        self.scroll_up(1000, 0)
+        time.sleep(2)
+        self.add_new_assignment_3().click()
+        time.sleep(2)
+        self.pop_up_assignment().click()
+        time.sleep(2)
+        # self.assignment_rubric_continue_btn().click()
+        self.scroll_down(0, 700)
+        self.assignment_name().send_keys("Short Ans")
+        self.assignment_timer_add().click()
+        self.assignment_type_dropdown().send_keys(Keys.ENTER)
+        time.sleep(1)
+        self.short().click()
+        time.sleep(1)
+        self.clear_field(self.input_assignment_prompt())
+        time.sleep(2)
+        self.input_assignment_prompt().send_keys("Create 1 question for assignment.")
+        self.assignment_create_button().click()
+        time.sleep(15)
+        obj.generator_left_body()
+        self.scroll_down(0, 700)
+        self.assignment_right_arrow_4().click()
+        time.sleep(1)
+        self.assignment_save_button().click()
+
+    """ create a essay assignment """
+
+    def test_add_essay(self):
+        obj = Paths(self.driver)
+        time.sleep(1)
+        self.scroll_up(1000, 0)
+        time.sleep(2)
+        self.add_new_assignment_4().click()
+        time.sleep(2)
+        self.pop_up_assignment().click()
+        time.sleep(2)
+        # self.assignment_rubric_continue_btn().click()
+        self.scroll_down(0, 700)
+        self.assignment_name().send_keys("Essay")
+        self.assignment_timer_add().click()
+        self.assignment_type_dropdown().send_keys(Keys.ENTER)
+        time.sleep(1)
+        self.essay().click()
+        time.sleep(1)
+        self.clear_field(self.input_assignment_prompt())
+        time.sleep(2)
+        self.input_assignment_prompt().send_keys("Create 1 question for assignment.")
+        self.assignment_create_button().click()
+        time.sleep(15)
+        obj.generator_left_body()
+        self.scroll_down(0, 700)
+        self.assignment_right_arrow_5().click()
+        time.sleep(1)
+        self.assignment_save_button().click()
+
+    """ create a mixed assignment """
+
+    def test_add_mixed(self):
+        obj = Paths(self.driver)
+        time.sleep(1)
+        self.scroll_up(1000, 0)
+        time.sleep(2)
+        self.add_new_assignment_5().click()
+        time.sleep(2)
+        self.pop_up_assignment().click()
+        time.sleep(2)
+        # self.assignment_rubric_continue_btn().click()
+        self.scroll_down(0, 700)
+        self.assignment_name().send_keys("Mixed")
+        self.assignment_timer_add().click()
+        self.assignment_type_dropdown().send_keys(Keys.ENTER)
+        time.sleep(1)
+        self.mixed().click()
+        time.sleep(1)
+        self.clear_field(self.input_assignment_prompt())
+        time.sleep(2)
+        self.input_assignment_prompt().send_keys("Create 1 question for assignment.")
+        self.assignment_create_button().click()
+        time.sleep(15)
+        obj.generator_left_body()
+        self.scroll_down(0, 700)
+        self.assignment_right_arrow_6().click()
+        time.sleep(1)
+        self.assignment_save_button().click()
+        self.back_to_course().click()
+
+    """ create a 2nd assignment """
+
+    def test_add_lesson2(self):
+        obj = Paths(self.driver)
+        self.back_to_course().click()
+        time.sleep(1)
+        self.add_lesson2().click()
+        obj.enter_lesson_name().send_keys("Automation Testing")
+        self.scroll_down(0, 500)
+        obj.enter_prompt_for_lesson().send_keys("Create a lesson on Automation Testing in 5 lines")
+        obj.enter_prompt_for_lesson().send_keys(Keys.ENTER)
+        time.sleep(25)
+        self.lesson_right_arrow().click()
+        self.lesson_proceed_button().click()
+        self.back_to_dashboard().click()
+        time.sleep(2)
+
+    """Add, Edit, Delete(Course, Lesson, Assignment)"""
+
+    def test_add_course1(self):
+        obj = Paths(self.driver)
+        obj.create_course().click()
+        obj.course_name().send_keys("Testing Course")
+        self.test_select_start_std()
+        self.test_select_end_std()
+        self.test_select_start_date()
+
+        obj.select_course_subject_dropdown().click()
+        subject_list = (obj.select_course_subject_list())
+
+        for subject in subject_list:
+            if subject.text == "English":
+                subject.click()
+                break
+        time.sleep(5)
+
+        self.test_ai_course_description()
+        self.test_course_image()
+        time.sleep(2)
+
+    """ Add lesson """
+    def test_add_lesson1(self):
+        obj = Paths(self.driver)
+        time.sleep(2)
+        self.scroll_down(0, 200)
+        time.sleep(5)
+        obj.add_lesson().click()
+        obj.enter_lesson_name().send_keys("Manual Testing")
+        self.scroll_down(0, 500)
+        time.sleep(2)
+        obj.enter_prompt_for_lesson().send_keys("Create a lesson on Manual Testing in 5 lines")
+        time.sleep(2)
+        obj.enter_prompt_for_lesson().send_keys(Keys.ENTER)
+        time.sleep(5)
+        self.lesson_right_arrow().click()
+        self.lesson_proceed_button().click()
+        self.back_to_course().click()
+
+    """ Add assignment """
+
+    def test_add_assignment1(self):
+        obj = Paths(self.driver)
+        self.all_page()
+        time.sleep(1)
+        self.scroll_up(1000, 0)
+        time.sleep(1)
+        self.add_new_assignment().click()
+        self.pop_up_assignment().click()
+        time.sleep(1)
+        self.scroll_down(0, 500)
+        time.sleep(1)
+        self.assignment_name().send_keys("MCQ")
+        self.assignment_timer_add().click()
+        self.assignment_type_dropdown().send_keys(Keys.ENTER)
+        time.sleep(1)
+        self.mcq().click()
+        time.sleep(1)
+        self.clear_field(self.input_assignment_prompt())
+        time.sleep(2)
+        self.input_assignment_prompt().send_keys("Create 1 question for Assignment.")
+        time.sleep(2)
+        self.assignment_create_button().click()
+        time.sleep(7)
+        obj.generator_left_body()
+        time.sleep(1)
+        self.scroll_down(0, 700)
+        time.sleep(1)
+        self.assignment_right_arrow_1().click()
+        time.sleep(1)
+        self.assignment_save_button().click()
+        print("Assignment creating successfully")
+        self.back_to_course().click()
+
+    """ Edit the Assignment """
+    def test_edit_assignment1(self):
+        obj = Paths(self.driver)
+        time.sleep(2)
+        self.edit_assignment2().click()
+        self.add_new_assignment_1().click()
+        self.select_assignment1().click()
+        obj.edit_assignment().send_keys("Thank You")
+        self.scroll_down(0, 800)
+        time.sleep(2)
+        self.assignment_save_button().click()
+        self.back_to_course().click()
+
+    """ Delete the assignment """
+    def test_delete_assignment1(self):
+        obj = Paths(self.driver)
+        time.sleep(2)
+        obj.delete_select_assignment().click()
+        time.sleep(2)
+        obj.delete_assignment().click()
+        obj.confirm_delete_assignment().click()
+        self.back_to_lesson().click()
+        time.sleep(2)
+
+    """ Edit the lesson """
+    def test_edit_lesson1(self):
+        obj = Paths(self.driver)
+        self.preview_lesson().click()
+        time.sleep(4)
+        self.remove_to_chatbot().click()
+        self.cut_chatbot().click()
+        # self.clear_field(obj.enter_lesson_name())
+        # time.sleep(2)
+        # obj.enter_lesson_name().send_keys("Automation Testing")
+        time.sleep(2)
+        self.write_lesson().send_keys(" Thank You")
+        self.scroll_down(0, 700)
+        time.sleep(2)
+        self.assignment_save_button().click()
+        self.back_to_course().click()
+
+    """ Delete the lesson """
+    def test_delete_lesson1(self):
+        obj = Paths(self.driver)
+        self.delete_to_lesson().click()
+        obj.confirm_delete_assignment().click()
+
+    """ Edit the course """
+    def test_edit_course1(self):
+        obj = Paths(self.driver)
+        self.edit_to_course().click()
+        self.edit_to_description().click()
+        time.sleep(7)
+        self.edit_to_update_course().click()
+        self.back_to_dashboard().click()
+
+    """ Delete the course """
+    def test_delete_course1(self):
+        obj = Paths(self.driver)
+        time.sleep(2)
+        # self.remove_to_chatbot().click()
+        self.cut_chatbot().click()
+        self.scroll_down(0, 300)
+        time.sleep(2)
+        self.delete_option_course().click()
+        self.delete_to_course().click()
+        obj.confirm_delete_assignment().click()

@@ -18,12 +18,6 @@ def Invoke_Browser(request):
     options.add_argument("--incognito")
     service_obj = Service()
     driver = webdriver.Chrome(service=service_obj, options=options)
-    # env = request.config.getoption('--env', default='validation')
-    # urls = {
-    #     'validation': 'https://mycro.news/',
-    #     'production': 'https://proschool.ai/'
-    # }
-    # return urls.get(env, urls['validation'])
     time.sleep(5)
     driver.get("https://qat.srds.ai/")
     driver.implicitly_wait(50)
@@ -36,7 +30,9 @@ def Invoke_Browser(request):
     driver.quit()
 
 
-# @pytest.mark.skip
+"""For getlogger"""
+
+
 @pytest.mark.hookwrapper
 def pytest_runtest_makereport(item):
     pytest_html = item.config.pluginmanager.getplugin('html')
@@ -56,6 +52,60 @@ def pytest_runtest_makereport(item):
         report.extra = extra
 
 
-# @pytest.mark.skip
+"""For screenshot"""
+
+
 def _capture_screenshot(name):
     driver.get_screenshot_as_file(name)
+
+
+# import pytest
+# from selenium import webdriver
+# from selenium.webdriver.chrome.options import Options as ChromeOptions
+# from selenium.webdriver.firefox.options import Options as FirefoxOptions
+# from selenium.webdriver.edge.options import Options as EdgeOptions
+# from selenium.webdriver.chrome.service import Service as ChromeService
+# from selenium.webdriver.firefox.service import Service as FirefoxService
+# from selenium.webdriver.edge.service import Service as EdgeService
+#
+# driver = None
+#
+#
+# @pytest.fixture(scope="class")
+# def Invoke_Browser(request, browser="chrome"):  # Add browser parameter with default value
+#     global driver
+#
+#     if browser.lower() == "chrome":
+#         options = ChromeOptions()
+#         options.add_experimental_option("detach", True)
+#         options.add_argument('ignore-certificate-errors')
+#         options.add_argument("--disable-application-cache")
+#         options.add_argument("--incognito")
+#         service_obj = ChromeService()
+#         driver = webdriver.Chrome(service=service_obj, options=options)
+#
+#     elif browser.lower() == "firefox":
+#         options = FirefoxOptions()
+#         options.add_argument('--ignore-certificate-errors')
+#         options.add_argument('--private')
+#         service_obj = FirefoxService()
+#         driver = webdriver.Firefox(service=service_obj, options=options)
+#
+#     elif browser.lower() == "edge":
+#         options = EdgeOptions()
+#         options.add_argument('--ignore-certificate-errors')
+#         options.add_argument('--inprivate')
+#         service_obj = EdgeService()
+#         driver = webdriver.Edge(service=service_obj, options=options)
+#
+#     else:
+#         raise ValueError(f"Browser {browser} is not supported")
+#
+#     driver.implicitly_wait(50)
+#     driver.get("https://qat.srds.ai/")
+#     driver.maximize_window()
+#     request.cls.driver = driver
+#     driver.refresh()
+#
+#     yield
+#     driver.quit()
