@@ -15,7 +15,7 @@ class TestCreateCourse(Baseclass):
         obj.start_button().click()
         obj.login_verification_code().click()
         obj.enter_email().click()
-        file_path = "C:\\Users\\Admin\\PycharmProjects\\QAT_SRDS\\Prod\\last_teacher_email_index.txt"
+        file_path = "C:\\Users\\Admin\\PycharmProjects\\SRDS\\Prod\\last_teacher_email_index.txt"
         self.driver.refresh()
 
         # Read a file

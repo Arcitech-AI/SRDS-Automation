@@ -36,7 +36,7 @@ class TestLoginStudent(Baseclass):
         time.sleep(0.2)
 
     def test_student_positive_login(self):
-        file_path = "C:\\Users\\Admin\\PycharmProjects\\QAT_SRDS\\Prod\\last_student_email_index.txt"
+        file_path = "C:\\Users\\Admin\\PycharmProjects\\SRDS\\Prod\\last_student_email_index.txt"
         obj = Paths(self.driver)
         self.driver.refresh()
 
