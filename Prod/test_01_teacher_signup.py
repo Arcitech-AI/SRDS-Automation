@@ -70,7 +70,7 @@ class TestSignUpStudent(Baseclass):
             time.sleep(0.2)
             otp_inp.send_keys(str(otp))
 
-        # time.sleep(2)
+        time.sleep(2)
         obj.signup_otp_confirm_btn().click()
         self.getLogger().info(f"Congratulation {email} has been registered")
 
