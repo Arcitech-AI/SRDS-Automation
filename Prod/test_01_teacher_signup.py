@@ -2,12 +2,6 @@ import os
 import time
 import pytest
 
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver import ActionChains
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support import select
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from Object.homepage import Paths
 from Utilities.baseclass import *
 from testdata.testcase_data import *
