@@ -1,16 +1,4 @@
 
-Prod/__pycache__/test_04_create_course.cpython-310-pytest-8.3.3.pyc
-Prod/__pycache__/test_03_teacher_profile.cpython-310-pytest-8.3.3.pyc
-Prod/__pycache__/test_02_teacher_login.cpython-310-pytest-8.3.3.pyc
-Prod/__pycache__/test_01_teacher_signup.cpython-310-pytest-8.3.3.pyc
-Prod/__pycache__/current_date_time.cpython-310.pyc
-Prod/__pycache__/conftest.cpython-310-pytest-8.3.3.pyc
-Prod/__pycache__/__init__.cpython-310.pyc
-Object/__pycache__/homepage.cpython-310.pyc
-Object/__pycache__/__init__.cpython-310.pyc
 .idea/QAT_SRDS.iml
 .idea/misc.xml
-testdata/__pycache__/__init__.cpython-310.pyc
-testdata/__pycache__/testcase_data.cpython-310.pyc
-Utilities/__pycache__/__init__.cpython-310.pyc
-Utilities/__pycache__/baseclass.cpython-310.pyc
+*.pyc
