@@ -1,4 +1,4 @@
 .idea/QAT_SRDS.iml
 .idea/misc.xml
+__pycache__/
 *.pyc
-
