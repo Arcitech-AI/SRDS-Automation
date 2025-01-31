@@ -1,4 +1,5 @@
 import time
+import pytest
 
 from selenium.common import StaleElementReferenceException
 from selenium.webdriver import Keys
