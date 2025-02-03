@@ -33,8 +33,8 @@ def Invoke_Browser(request):
 """For getlogger"""
 
 
-@pytest.mark.hookwrapper
-def pytest_runtest_makereport(item):
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
     pytest_html = item.config.pluginmanager.getplugin('html')
     outcome = yield
     report = outcome.get_result()
