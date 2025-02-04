@@ -60,6 +60,7 @@ class TestLoginTeacher(Baseclass):
             time.sleep(0.2)
             otp_inp.send_keys(str(otp))
 
+
         obj.final_login_btn().click()
         time.sleep(2)
         self.getLogger().info(f"Login attempt successful with email: {file_data}")

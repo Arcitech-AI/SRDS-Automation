@@ -64,9 +64,10 @@ class TestSignUpStudent(Baseclass):
             time.sleep(0.2)
             otp_inp.send_keys(str(otp))
 
-        time.sleep(5)
+        time.sleep(1)
         obj.signup_otp_confirm_btn().click()
         self.getLogger().info(f"Congratulation {email} has been registered")
+        time.sleep(5)
 
     @pytest.fixture(params=Data.getTestData("user", "../testcases/sign_up.xlsx"))
     def username_field(self, request):

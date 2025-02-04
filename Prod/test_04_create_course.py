@@ -29,6 +29,7 @@ class TestCreateCourse(Baseclass):
         self.clear_field(obj.enter_email())
         time.sleep(0.2)
         obj.enter_email().send_keys(file_data)
+        time.sleep(0.2)
         obj.click_code_button().click()
 
         # Verification code
@@ -205,6 +206,7 @@ class TestCreateCourse(Baseclass):
         time.sleep(2)
         self.assignment_rubric_continue_btn().click()
         self.scroll_down(0, 700)
+        time.sleep(2)
         self.assignment_name().send_keys("TF")
         self.assignment_timer_add().click()
         self.assignment_type_dropdown().send_keys(Keys.ENTER)

@@ -25,7 +25,7 @@ def Invoke_Browser(request):
     time.sleep(1)
     # driver.set_window_size(1920, 1080)
     request.cls.driver = driver
-    driver.refresh()
+    # driver.refresh()
     yield
     driver.quit()
 
