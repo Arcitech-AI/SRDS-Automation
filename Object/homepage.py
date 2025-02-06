@@ -130,6 +130,15 @@ class Paths:
     delete_assignment1 = (By.XPATH, "(//i[@class='fa-solid fa-trash'])[1]")
     delete_confirm = (By.XPATH, "//button[normalize-space()='Delete']")
 
+    # Schoology
+
+    open_schoology = (By.XPATH, "//div[@class='dashborad-Courses-container']//div[5]//div[2]")
+    refresh_schoology_btn = (By.XPATH, "//button[normalize-space()='Refresh Course']")
+    all_select_schoology = (By.XPATH, "//input[@id='select-all']")
+    next_schoology = (By.XPATH, "//button[normalize-space()='Next']")
+    start_sync_schoology = (By.XPATH, "//button[normalize-space()='Start Sync']")
+    confirm_schoology = (By.XPATH, "//div[@class='Conformatio-popup-btn']/button[1]")
+
     # sign up functions
 
     def start_button(self):
@@ -376,3 +385,24 @@ class Paths:
 
     def confirm_delete_assignment(self):
         return self.driver.find_element(*Paths.delete_confirm)
+
+    # Schoology
+
+    def open_schoology_courses(self):
+        return self.driver.find_element(*Paths.open_schoology)
+
+    def refresh_schoology(self):
+        return self.driver.find_element(*Paths.refresh_schoology_btn)
+
+    def select_all_schoology(self):
+        return self.driver.find_element(*Paths.all_select_schoology)
+
+    def next_btn_schoology(self):
+        return self.driver.find_element(*Paths.next_schoology)
+
+    def start_sync_schoology_btn(self):
+        return self.driver.find_element(*Paths.start_sync_schoology)
+
+    def confirm_schoology_sync(self):
+        return self.driver.find_element(*Paths.confirm_schoology)
+
