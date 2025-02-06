@@ -1,10 +1,10 @@
+import pandas as pd
 import requests
 from h11._abnf import status_code
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 import os
-import pandas as pd
 from concurrent.futures import ThreadPoolExecutor
 
 
@@ -92,7 +92,6 @@ def signup_user(email):
 
 
 def main():
-    # Read emails from Excel
     email_list = read_excel_data()
     if not email_list:
         print("No emails found to process")

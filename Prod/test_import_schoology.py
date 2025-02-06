@@ -2,6 +2,7 @@ import time
 
 from Object.homepage import Paths
 from Utilities.baseclass import *
+from concurrent.futures import ThreadPoolExecutor
 
 
 class TestLoginTeacher(Baseclass):
@@ -10,19 +11,19 @@ class TestLoginTeacher(Baseclass):
         obj = Paths(self.driver)
         obj.start_button().click()
         obj.login_verification_code().click()
-        obj.enter_email().click()
-        file_path = "C:\\Users\\Admin\\PycharmProjects\\SRDS\\Prod\\last_teacher_email_index.txt"
-        self.driver.refresh()
-
-        # Read a file
-        def read_file(path_file):
-            with open(path_file, 'r') as file:
-                data = file.read()
-            return data
-
-        file_data = read_file(file_path)
-        self.clear_field(obj.enter_email())
-        time.sleep(0.2)
+        # obj.enter_email().click()
+        # file_path = "C:\\Users\\Admin\\PycharmProjects\\SRDS\\Prod\\last_teacher_email_index.txt"
+        # self.driver.refresh()
+        #
+        # # Read a file
+        # def read_file(path_file):
+        #     with open(path_file, 'r') as file:
+        #         data = file.read()
+        #     return data
+        #
+        # file_data = read_file(file_path)
+        # self.clear_field(obj.enter_email())
+        # time.sleep(0.2)
         # obj.enter_email().send_keys(file_data)
         obj.enter_email().send_keys("omkarhundre@arcitech.ai")
         obj.click_code_button().click()
@@ -38,7 +39,7 @@ class TestLoginTeacher(Baseclass):
 
         obj.final_login_btn().click()
         time.sleep(2)
-        self.getLogger().info(f"Login attempt successful with email: {file_data}")
+        # self.getLogger().info(f"Login attempt successful with email: {file_data}")
 
     def test_schoology(self):
         obj = Paths(self.driver)
@@ -53,3 +54,13 @@ class TestLoginTeacher(Baseclass):
         time.sleep(5)
         obj.confirm_schoology_sync().click()
         time.sleep(10)
+
+    def run_in_parallel(self):
+        with ThreadPoolExecutor(max_workers=5) as executor:
+            executor.submit(self.test_teacher_login)
+            executor.submit(self.test_schoology)
+
+
+if __name__ == "__main__":
+    test = TestLoginTeacher()
+    test.run_in_parallel()
