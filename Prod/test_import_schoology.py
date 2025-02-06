@@ -1,35 +1,20 @@
 import time
-
 from Object.homepage import Paths
 from Utilities.baseclass import *
 from concurrent.futures import ThreadPoolExecutor
+from selenium import webdriver
 
 
 class TestLoginTeacher(Baseclass):
 
-    def test_teacher_login(self):
-        obj = Paths(self.driver)
+    def test_teacher_login(self, driver):
+        obj = Paths(driver)
         obj.start_button().click()
         obj.login_verification_code().click()
-        # obj.enter_email().click()
-        # file_path = "C:\\Users\\Admin\\PycharmProjects\\SRDS\\Prod\\last_teacher_email_index.txt"
-        # self.driver.refresh()
-        #
-        # # Read a file
-        # def read_file(path_file):
-        #     with open(path_file, 'r') as file:
-        #         data = file.read()
-        #     return data
-        #
-        # file_data = read_file(file_path)
-        # self.clear_field(obj.enter_email())
-        # time.sleep(0.2)
-        # obj.enter_email().send_keys(file_data)
         obj.enter_email().send_keys("omkarhundre@arcitech.ai")
         obj.click_code_button().click()
 
         # Verification code
-
         otp_sequence = [2, 8, 0, 5, 9, 9]
         otp_inputs = obj.enter_code()
 
@@ -39,10 +24,9 @@ class TestLoginTeacher(Baseclass):
 
         obj.final_login_btn().click()
         time.sleep(2)
-        # self.getLogger().info(f"Login attempt successful with email: {file_data}")
 
-    def test_schoology(self):
-        obj = Paths(self.driver)
+    def test_schoology(self, driver):
+        obj = Paths(driver)
         obj.open_schoology_courses().click()
         time.sleep(1)
         self.scroll_down(0, 500)
@@ -56,9 +40,36 @@ class TestLoginTeacher(Baseclass):
         time.sleep(10)
 
     def run_in_parallel(self):
-        with ThreadPoolExecutor(max_workers=5) as executor:
-            executor.submit(self.test_teacher_login)
-            executor.submit(self.test_schoology)
+        # Use ThreadPoolExecutor for concurrent execution of tests
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            futures = [
+                executor.submit(self._run_test_teacher_login),
+                executor.submit(self._run_test_schoology)
+            ]
+            for future in futures:
+                future.result()
+
+    def _run_test_teacher_login(self):
+        options = webdriver.ChromeOptions()
+        options.add_argument("--start-maximized")
+        options.add_argument("--disable-notifications")
+        driver = webdriver.Chrome(options=options)
+
+        try:
+            self.test_teacher_login(driver)
+        finally:
+            driver.quit()
+
+    def _run_test_schoology(self):
+        options = webdriver.ChromeOptions()
+        options.add_argument("--start-maximized")
+        options.add_argument("--disable-notifications")
+        driver = webdriver.Chrome(options=options)
+
+        try:
+            self.test_schoology(driver)
+        finally:
+            driver.quit()
 
 
 if __name__ == "__main__":
