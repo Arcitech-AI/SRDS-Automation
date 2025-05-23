@@ -92,7 +92,7 @@ class Paths:
     course_select_current_date = (By.XPATH, "//div[@role='rowgroup']/div/button")
     course_select_end_date = (By.XPATH, "//button[normalize-space()='28']")
     course_enhance_description = (By.XPATH, "//button[@class='Course-description-inner-ai-feilds']")
-    course_generate_image = (By.XPATH, "//button[normalize-space()='Generate using AI']")
+    course_generate_image = (By.XPATH, "//div[@class='Create-Course-uisng-ai']")
     course_regenerate_image = (By.XPATH, "//button[normalize-space()='Regenerate']")
     course_upload_image = (By.XPATH, "//label/input[@type='file']")
     course_final_button = (By.XPATH, "//div[@class='create-course-enhance-course-folder']//button["

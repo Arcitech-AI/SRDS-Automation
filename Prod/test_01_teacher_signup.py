@@ -12,7 +12,7 @@ class TestSignUpStudent(Baseclass):
     def test_check_url(self):
         log = self.getLogger()
         log.info("----- %s -----" % self.get_url())
-        assert "https://qat.srds.ai/" == self.get_url()
+        assert "https://pre.srds.ai/" == self.get_url()
 
     def test_teacher_empty_username(self):
         obj = Paths(self.driver)

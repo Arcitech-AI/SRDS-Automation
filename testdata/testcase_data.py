@@ -16,4 +16,3 @@ class Data:
                 lst.append(Dict)
 
         return lst
-

@@ -1,9 +1,8 @@
 import time
 
-
 from selenium.webdriver.support.ui import Select
-from Object.homepage import Paths
 from Utilities.baseclass import *
+from Object.homepage import Paths
 
 
 class TestLoginTeacher(Baseclass):
@@ -105,9 +104,3 @@ class TestLoginTeacher(Baseclass):
     def test_signup_user(self):
         self.open_profile().click()
         self.logout_button().click()
-
-
-
-
-
-

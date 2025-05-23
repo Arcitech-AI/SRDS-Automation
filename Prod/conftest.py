@@ -19,7 +19,7 @@ def Invoke_Browser(request):
     service_obj = Service()
     driver = webdriver.Chrome(service=service_obj, options=options)
     time.sleep(5)
-    driver.get("https://qat.srds.ai/")
+    driver.get("https://pre.srds.ai/")
     driver.implicitly_wait(50)
     driver.maximize_window()
     time.sleep(1)
