@@ -148,6 +148,33 @@ class Baseclass:
     def mixed(self):
         return self.driver.find_element(By.XPATH, "//li[normalize-space()='Mixed Questions']")
 
+    def add_mcq_rubric(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Rubric']")
+
+    def add_tf_rubric(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Rubric 1']")
+
+    def add_fitb_rubric(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Rubric 2']")
+
+    def add_short_rubric(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Rubric 3']")
+
+    def add_essay_rubric(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Rubric 4']")
+
+    def add_mixed_rubric(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Rubric 5']")
+
+    def add_popup_rubric_button(self):
+        return self.driver.find_element(By.XPATH, "//div[@id='add-assignment']")
+
+    def enter_rubric_instruction(self):
+        return self.driver.find_element(By.XPATH, "//div[@role='textbox']")
+
+    def save_rubric_button(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Save']")
+
     def assignment_right_arrow_1(self):
         return self.driver.find_element(By.XPATH, "(//i[@data-tooltip-id='update-plugin'])[2]")
 
