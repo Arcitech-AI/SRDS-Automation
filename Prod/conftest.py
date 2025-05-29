@@ -20,6 +20,7 @@ def Invoke_Browser(request):
     driver = webdriver.Chrome(service=service_obj, options=options)
     time.sleep(5)
     driver.get("https://pre.srds.ai/")
+    # driver.get("https://srds.ai/")
     driver.implicitly_wait(50)
     driver.maximize_window()
     time.sleep(1)

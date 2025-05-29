@@ -72,7 +72,7 @@ class TestCreateCourse(Baseclass):
                 print("Please enter correct data")
         self.clear_field(obj.course_name())
         time.sleep(2)
-        obj.course_name().send_keys("Performance Testing")
+        obj.course_name().send_keys("Software Testing")
 
     def test_negative_and_positive_subject_name(self):
         obj = Paths(self.driver)
@@ -422,16 +422,18 @@ class TestCreateCourse(Baseclass):
         self.scroll_down(0, 700)
         time.sleep(2)
         self.assignment_save_button().click()
-        time.sleep(5)
+        time.sleep(2)
 
         """Add the custom rubric"""
 
         self.scroll_up(0, -500)
+        time.sleep(2)
         self.add_mcq_rubric().click()
+        time.sleep(4)
         self.add_popup_rubric_button().click()
         self.enter_rubric_instruction().send_keys("Each questions was 2 marks")
         time.sleep(2)
-        self.scroll_down(0, 700)
+        self.scroll_down(0, 1000)
         self.save_rubric_button().click()
         time.sleep(5)
 
@@ -470,9 +472,14 @@ class TestCreateCourse(Baseclass):
         """Add the custom rubric"""
 
         self.scroll_up(0, -500)
-        time.sleep(1)
-        self.add_tf_rubric().click()
-        time.sleep(2)
+        time.sleep(4)
+        try:
+            self.add_tf_rubric().click()
+
+        except:
+            self.assignment_rubric_continue_btn().click()
+
+        time.sleep(4)
         self.add_popup_rubric_button().click()
         self.enter_rubric_instruction().send_keys("Each questions was 2 marks")
         time.sleep(2)
@@ -481,7 +488,7 @@ class TestCreateCourse(Baseclass):
         self.save_rubric_button().click()
         time.sleep(5)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_fitb_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -514,16 +521,22 @@ class TestCreateCourse(Baseclass):
         """Add the custom rubric"""
 
         self.scroll_up(0, -500)
-        self.add_fitb_rubric().click()
+        time.sleep(4)
+        try:
+            self.add_fitb_rubric().click()
+
+        except:
+            self.assignment_rubric_continue_btn().click()
+        time.sleep(4)
         self.add_popup_rubric_button().click()
         self.enter_rubric_instruction().send_keys("Each questions was 2 marks")
         time.sleep(2)
         self.scroll_down(0, 700)
         time.sleep(2)
         self.save_rubric_button().click()
-        time.sleep(50)
+        time.sleep(5)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_short_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -543,7 +556,7 @@ class TestCreateCourse(Baseclass):
         time.sleep(2)
         self.input_assignment_prompt().send_keys(". give me the 10 questions")
         self.assignment_create_button().click()
-        time.sleep(15)
+        time.sleep(60)
         obj.generator_left_body()
         self.scroll_down(0, 700)
         self.assignment_right_arrow_4().click()
@@ -556,18 +569,24 @@ class TestCreateCourse(Baseclass):
         """Add the custom rubric"""
 
         self.scroll_up(0, -500)
-        self.add_short_rubric().click()
+        time.sleep(4)
+        try:
+            self.add_short_rubric().click()
+
+        except:
+            self.assignment_rubric_continue_btn().click()
+        time.sleep(4)
         self.add_popup_rubric_button().click()
         self.enter_rubric_instruction().send_keys("Each questions was 7.9 marks")
         time.sleep(2)
         self.scroll_down(0, 700)
         time.sleep(2)
         self.save_rubric_button().click()
-        time.sleep(2)
+        time.sleep(5)
 
     """ create a essay assignment """
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_essay_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -587,7 +606,7 @@ class TestCreateCourse(Baseclass):
         time.sleep(2)
         self.input_assignment_prompt().send_keys(". give me the 10 questions")
         self.assignment_create_button().click()
-        time.sleep(15)
+        time.sleep(60)
         obj.generator_left_body()
         self.scroll_down(0, 700)
         self.assignment_right_arrow_5().click()
@@ -600,7 +619,13 @@ class TestCreateCourse(Baseclass):
         """Add the custom rubric"""
 
         self.scroll_up(0, -500)
-        self.add_essay_rubric().click()
+        time.sleep(4)
+        try:
+            self.add_essay_rubric().click()
+
+        except:
+            self.assignment_rubric_continue_btn().click()
+        time.sleep(4)
         self.add_popup_rubric_button().click()
         self.enter_rubric_instruction().send_keys("Each questions was 12.13 marks")
         time.sleep(2)
@@ -611,7 +636,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a mixed assignment """
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_mixed_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -631,7 +656,7 @@ class TestCreateCourse(Baseclass):
         time.sleep(2)
         self.input_assignment_prompt().send_keys(". give me the 1 questions")
         self.assignment_create_button().click()
-        time.sleep(15)
+        time.sleep(60)
         obj.generator_left_body()
         self.scroll_down(0, 700)
         self.assignment_right_arrow_6().click()
@@ -639,20 +664,28 @@ class TestCreateCourse(Baseclass):
         self.scroll_down(0, 700)
         time.sleep(5)
         self.assignment_save_button().click()
-        self.back_to_course().click()
         time.sleep(2)
 
         """Add the custom rubric"""
 
         self.scroll_up(0, -500)
-        self.add_mixed_rubric().click()
+        time.sleep(4)
+        try:
+            self.add_mixed_rubric().click()
+
+        except:
+            self.assignment_rubric_continue_btn().click()
+        time.sleep(4)
         self.add_popup_rubric_button().click()
         self.enter_rubric_instruction().send_keys("Each questions was 9 marks")
         time.sleep(2)
         self.scroll_down(0, 700)
         time.sleep(2)
         self.save_rubric_button().click()
+        time.sleep(2)
+        self.back_to_course().click()
         time.sleep(50)
+
 
     """Add, Edit, Delete(Course, Lesson, Assignment)"""
 

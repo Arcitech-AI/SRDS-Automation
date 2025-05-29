@@ -151,9 +151,11 @@ class Baseclass:
     def add_mcq_rubric(self):
         return self.driver.find_element(By.XPATH, "//button[normalize-space()='Rubric']")
 
-    def add_tf_rubric(self):
-        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Rubric 1']")
+    # def add_tf_rubric(self):
+    #     return self.driver.find_element(By.XPATH, "//button[normalize-space()='Rubric 1']")
 
+    def add_tf_rubric(self):
+        return self.driver.find_element(By.XPATH, "//div[@class='tab-dropdown'][3]/button")
     def add_fitb_rubric(self):
         return self.driver.find_element(By.XPATH, "//button[normalize-space()='Rubric 2']")
 

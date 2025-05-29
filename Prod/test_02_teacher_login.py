@@ -11,6 +11,7 @@ class TestLoginTeacher(Baseclass):
         log = self.getLogger()
         log.info("----- %s -----" % self.get_url())
         assert "https://pre.srds.ai/" == self.get_url()
+        # assert "https://srds.ai/" == self.get_url()
 
     def test_teacher_empty_username(self):
         obj = Paths(self.driver)
