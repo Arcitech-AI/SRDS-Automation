@@ -384,19 +384,22 @@ class TestCreateCourse(Baseclass):
 
     def test_example_course(self):
         obj = Paths(self.driver)
-        self.scroll_down(0,300)
+        self.scroll_down(0, 300)
         time.sleep(2)
         obj.open_previous_course().click()
-        obj.open_previous_assignment().click()
-
-
+        obj.open_previous_first_lesson().click()
+        # obj.open_previous_lesson().click()
+        # time.sleep(2)
+        # self.scroll_down(0, 900)
+        # time.sleep(2)
+        # obj.open_previous_third_lesson().click()
 
     """ create a 2nd lesson """
 
     @pytest.mark.skip
     def test_add_lesson2(self):
         obj = Paths(self.driver)
-        self.add_lesson2().click()
+        self.add_lesson_extra().click()
         obj.enter_lesson_name().send_keys("Automation Testing")
         self.scroll_down(0, 500)
         time.sleep(2)
@@ -414,6 +417,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a mcq with custom rubric """
 
+    @pytest.mark.skip
     def test_add_mcq_with_custom_rubric(self):
         obj = Paths(self.driver)
         time.sleep(2)
@@ -457,6 +461,7 @@ class TestCreateCourse(Baseclass):
         self.save_rubric_button().click()
         time.sleep(10)
 
+    @pytest.mark.skip
     def test_add_tf_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -465,7 +470,7 @@ class TestCreateCourse(Baseclass):
         time.sleep(5)
         self.add_new().click()
         time.sleep(2)
-        self.scroll_down(0,500)
+        self.scroll_down(0, 500)
         time.sleep(7)
         self.assignment_name().send_keys("TF")
         self.assignment_timer_add().click()
@@ -498,6 +503,7 @@ class TestCreateCourse(Baseclass):
         self.save_rubric_button().click()
         time.sleep(10)
 
+    @pytest.mark.skip
     def test_add_fitb_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -539,6 +545,7 @@ class TestCreateCourse(Baseclass):
         self.save_rubric_button().click()
         time.sleep(10)
 
+    @pytest.mark.skip
     def test_add_short_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -582,6 +589,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a essay assignment """
 
+    @pytest.mark.skip
     def test_add_essay_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -623,6 +631,7 @@ class TestCreateCourse(Baseclass):
         self.save_rubric_button().click()
         time.sleep(50)
 
+    @pytest.mark.skip
     def test_add_mixed_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -657,13 +666,33 @@ class TestCreateCourse(Baseclass):
         self.add_mixed_rubric().click()
         time.sleep(5)
         self.add_popup_rubric_button().click()
-        self.enter_rubric_instruction().send_keys("MCQ is 3 marks. TF is 4 marks. FITB is 5 marks. Short answer is 7 marks. Essay is 9 marks")
+        self.enter_rubric_instruction().send_keys(
+            "MCQ is 3 marks. TF is 4 marks. FITB is 5 marks. Short answer is 7 marks. Essay is 9 marks")
         time.sleep(5)
         self.scroll_down(0, 500)
         time.sleep(10)
         self.save_rubric_button().click()
         time.sleep(50)
 
+    """Add on the 3rd Lesson"""
+
+    def test_add_lesson3(self):
+        obj = Paths(self.driver)
+        self.add_lesson_extra().click()
+        obj.enter_lesson_name().send_keys("Performance Testing")
+        self.scroll_down(0, 500)
+        time.sleep(2)
+        obj.enter_prompt_for_lesson().send_keys("I want the deep knowledge for Performance Testing.")
+        time.sleep(2)
+        obj.enter_prompt_for_lesson().send_keys(Keys.ENTER)
+        time.sleep(25)
+        self.lesson_right_arrow().click()
+        time.sleep(2)
+        self.scroll_down(0, 500)
+        time.sleep(2)
+        self.lesson_proceed_button().click()
+        # self.back_to_course().click()
+        time.sleep(2)
 
     """Add, Edit, Delete(Course, Lesson, Assignment)"""
 

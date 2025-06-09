@@ -139,19 +139,28 @@ class Paths:
     start_sync_schoology = (By.XPATH, "//button[normalize-space()='Start Sync']")
     confirm_schoology = (By.XPATH, "//div[@class='Conformatio-popup-btn']/button[1]")
 
-
     # open the course
 
     open_course = (By.XPATH, "//div[@class='created-my-courses-container']//div[1]//div[2]//button[1]")
-    open_assignment = (By.XPATH, "(//button[@type='button'][normalize-space()='Edit Lesson'])[2]")
+    open_first_lesson = (By.XPATH, "(//button[@type='button'][normalize-space()='Edit Lesson'])[1]")
+    open_second_lesson = (By.XPATH, "(//button[@type='button'][normalize-space()='Edit Lesson'])[2]")
+    open_third_lesson = (By.XPATH, "(//button[@type='button'][normalize-space()='Edit Lesson'])[3]")
+    # open_third_lesson = (By.XPATH, "(//div[@id='CreateLesson-section']//div[3]//div[1]//div[1]//div[2]//button[1]")
     scroll_generator = (By.XPATH, "//button[@class='scroll-to-bottom-btn']")
+
     # sign up functions
 
     def open_previous_course(self):
         return self.driver.find_element(*Paths.open_course)
 
-    def open_previous_assignment(self):
-        return self.driver.find_element(*Paths.open_assignment)
+    def open_previous_lesson(self):
+        return self.driver.find_element(*Paths.open_second_lesson)
+
+    def open_previous_first_lesson(self):
+        return self.driver.find_element(*Paths.open_first_lesson)
+
+    def open_previous_third_lesson(self):
+        return self.driver.find_element(*Paths.open_third_lesson)
 
     def scroller(self):
         return self.driver.find_element(*Paths.scroll_generator)
@@ -420,4 +429,3 @@ class Paths:
 
     def confirm_schoology_sync(self):
         return self.driver.find_element(*Paths.confirm_schoology)
-

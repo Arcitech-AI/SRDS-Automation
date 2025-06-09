@@ -214,7 +214,7 @@ class Baseclass:
     def back_to_dashboard(self):
         return self.driver.find_element(By.XPATH, "//img[@alt='logo']")
 
-    def add_lesson2(self):
+    def add_lesson_extra(self):
         return self.driver.find_element(By.XPATH, "//button[normalize-space()='Add Lesson']")
 
     def edit_assignment2(self):
