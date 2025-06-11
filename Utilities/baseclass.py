@@ -196,6 +196,24 @@ class Baseclass:
     def assignment_right_arrow_6(self):
         return self.driver.find_element(By.XPATH, "(//i[@data-tooltip-id='update-plugin'])[7]")
 
+    def assignment_right_arrow_7(self):
+        return self.driver.find_element(By.XPATH, "(//i[@data-tooltip-id='update-plugin'])[8]")
+
+    def assignment_right_arrow_8(self):
+        return self.driver.find_element(By.XPATH, "(//i[@data-tooltip-id='update-plugin'])[9]")
+
+    def assignment_right_arrow_9(self):
+        return self.driver.find_element(By.XPATH, "(//i[@data-tooltip-id='update-plugin'])[10]")
+
+    def assignment_right_arrow_10(self):
+        return self.driver.find_element(By.XPATH, "(//i[@data-tooltip-id='update-plugin'])[11]")
+
+    def assignment_right_arrow_11(self):
+        return self.driver.find_element(By.XPATH, "(//i[@data-tooltip-id='update-plugin'])[12]")
+
+    def assignment_right_arrow_12(self):
+        return self.driver.find_element(By.XPATH, "(//i[@data-tooltip-id='update-plugin'])[13]")
+
     def assignment_save_button(self):
         return self.driver.find_element(By.XPATH, "//button[normalize-space()='Save']")
 
