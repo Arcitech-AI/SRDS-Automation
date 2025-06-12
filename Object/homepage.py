@@ -126,8 +126,8 @@ class Paths:
 
     # Delete assignment
 
-    select_assignment = (By.XPATH, "(//div[@class='assignments_count_details'])[1]")
-    delete_assignment1 = (By.XPATH, "(//i[@class='fa-solid fa-trash'])[1]")
+    select_assignment = (By.XPATH, "//i[@class='fa-solid fa-trash']")
+    delete_assignment1 = (By.XPATH, "//button[normalize-space()='Delete']")
     delete_confirm = (By.XPATH, "//button[normalize-space()='Delete']")
 
     # Schoology

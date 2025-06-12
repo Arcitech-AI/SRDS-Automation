@@ -235,8 +235,11 @@ class Baseclass:
     def add_lesson_extra(self):
         return self.driver.find_element(By.XPATH, "//button[normalize-space()='Add Lesson']")
 
-    def edit_assignment2(self):
-        return self.driver.find_element(By.XPATH, "(//button[@type='button'][normalize-space()='Preview Lesson'])[1]")
+    def open_all_assignments(self):
+        return self.driver.find_element(By.XPATH, "//div[@class='assignments_count_details']")
+
+    def edit_assignment1(self):
+        return self.driver.find_element(By.XPATH, "//p[normalize-space()='Edit']")
 
     def select_assignment1(self):
         return self.driver.find_element(By.XPATH, "//div[@class='assignment-item']")
@@ -257,7 +260,7 @@ class Baseclass:
         return self.driver.find_element(By.XPATH, "//span[normalize-space()='Back']")
 
     def preview_lesson(self):
-        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Preview Lesson']")
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Edit Lesson']")
 
     def edit_lesson(self):
         return self.driver.find_element(By.XPATH, "//span[normalize-space()='Manual Testing']")
