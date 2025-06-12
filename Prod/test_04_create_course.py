@@ -16,7 +16,7 @@ class TestCreateCourse(Baseclass):
         obj.start_button().click()
         obj.login_verification_code().click()
         obj.enter_email().click()
-        file_path = "C:\\Users\\Admin\\PycharmProjects\\SRDS\\Prod\\last_teacher_email_index.txt"
+        file_path = "C:\\Users\\Admin\\PycharmProjects\\SRDS-Automation\\Prod\\last_teacher_email_index.txt"
         self.driver.refresh()
 
         # Read a file
@@ -46,18 +46,18 @@ class TestCreateCourse(Baseclass):
         self.getLogger().info(f"Login attempt successful with email: {file_data}")
 
     # create a course
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_create_course(self):
         obj = Paths(self.driver)
         time.sleep(2)
         obj.create_course().click()
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_empty_course_name(self):
         obj = Paths(self.driver)
         obj.course_name().send_keys(Keys.ENTER)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_negative_course_name(self):
         obj = Paths(self.driver)
         negative_data = ["!@#$qwer", "!#$%^asdfg1234", "!@#$%^&*()_+=<>?,./"]
@@ -76,7 +76,7 @@ class TestCreateCourse(Baseclass):
         time.sleep(2)
         obj.course_name().send_keys("Software Testing")
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_negative_and_positive_subject_name(self):
         obj = Paths(self.driver)
         obj.select_course_subject_dropdown().click()
@@ -88,7 +88,7 @@ class TestCreateCourse(Baseclass):
                 break
         time.sleep(5)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_select_start_std(self):
         obj = Paths(self.driver)
         obj.click_start_std_dropdown().click()
@@ -106,7 +106,7 @@ class TestCreateCourse(Baseclass):
             except StaleElementReferenceException:
                 print("StaleElementReferenceException encountered. Re-fetching the standard list.")
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_select_end_std(self):
         obj = Paths(self.driver)
         obj.click_end_std_dropdown().click()
@@ -124,7 +124,7 @@ class TestCreateCourse(Baseclass):
             except StaleElementReferenceException:
                 print("StaleElementReferenceException encountered. Re-fetching the standard list.")
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_select_start_date(self):
         obj = Paths(self.driver)
         obj.click_select_calendar().click()
@@ -141,14 +141,14 @@ class TestCreateCourse(Baseclass):
         obj.click_select_end_calendar().click()
         obj.click_select_end_date().click()
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_ai_course_description(self):
         obj = Paths(self.driver)
         time.sleep(10)
         obj.enhanced_course_description().click()
         time.sleep(10)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_course_image(self):
         obj = Paths(self.driver)
         obj.generate_image().click()
@@ -161,7 +161,7 @@ class TestCreateCourse(Baseclass):
         time.sleep(2)
 
     # Create a Lesson
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_lesson(self):
         obj = Paths(self.driver)
         time.sleep(2)
@@ -179,13 +179,13 @@ class TestCreateCourse(Baseclass):
         self.scroll_down(0, 800)
         time.sleep(2)
         self.lesson_proceed_button().click()
-        self.back_to_course().click()
+        # self.back_to_course().click()
         time.sleep(5)
 
     """ create a Assignment with default rubric """
     """ create a mcq assignment """
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_mcq(self):
         obj = Paths(self.driver)
         time.sleep(2)
@@ -193,15 +193,17 @@ class TestCreateCourse(Baseclass):
         time.sleep(2)
         self.add_new_assignment().click()
         self.pop_up_assignment().click()
+        time.sleep(2)
         self.scroll_down(0, 500)
+        time.sleep(5)
         self.assignment_name().send_keys("MCQ")
         self.assignment_timer_add().click()
         self.assignment_type_dropdown().send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(2)
         self.mcq().click()
         # time.sleep(5)
         # self.clear_field(self.input_assignment_prompt())
-        time.sleep(1)
+        time.sleep(2)
         self.input_assignment_prompt().send_keys(". give me the 1 questions")
         self.assignment_create_button().click()
         time.sleep(5)
@@ -217,7 +219,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a true or false assignment"""
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_tf(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -251,7 +253,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a fill in the blanks assignment """
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_fitb(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -284,7 +286,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a short answer assignment """
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_short(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -317,7 +319,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a essay assignment """
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_essay(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -350,7 +352,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a mixed assignment """
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_mixed(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -382,6 +384,7 @@ class TestCreateCourse(Baseclass):
         self.back_to_course().click()
         time.sleep(2)
 
+    @pytest.mark.skip
     def test_example_course(self):
         obj = Paths(self.driver)
         self.scroll_down(0, 300)
@@ -396,7 +399,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a 2nd lesson """
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_lesson2(self):
         obj = Paths(self.driver)
         self.add_lesson_extra().click()
@@ -417,7 +420,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a mcq with custom rubric """
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_mcq_with_custom_rubric(self):
         obj = Paths(self.driver)
         time.sleep(2)
@@ -461,7 +464,7 @@ class TestCreateCourse(Baseclass):
         self.save_rubric_button().click()
         time.sleep(10)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_tf_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -503,7 +506,7 @@ class TestCreateCourse(Baseclass):
         self.save_rubric_button().click()
         time.sleep(10)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_fitb_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -545,7 +548,7 @@ class TestCreateCourse(Baseclass):
         self.save_rubric_button().click()
         time.sleep(10)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_short_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -589,7 +592,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a essay assignment """
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_essay_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -631,7 +634,7 @@ class TestCreateCourse(Baseclass):
         self.save_rubric_button().click()
         time.sleep(50)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_add_mixed_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -672,7 +675,8 @@ class TestCreateCourse(Baseclass):
         self.scroll_down(0, 500)
         time.sleep(10)
         self.save_rubric_button().click()
-        time.sleep(50)
+        self.back_to_course().click()
+        time.sleep(5)
 
     """Add on the 3rd Lesson"""
 
