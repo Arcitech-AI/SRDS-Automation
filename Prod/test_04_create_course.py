@@ -1034,6 +1034,7 @@ class TestCreateCourse(Baseclass):
 
         self.test_ai_course_description()
         self.test_course_image()
+        print("Successfully created the API Course.")
         time.sleep(2)
 
     """ Add lesson """
@@ -1053,11 +1054,13 @@ class TestCreateCourse(Baseclass):
         obj.enter_prompt_for_lesson().send_keys(Keys.ENTER)
         time.sleep(40)
         obj.scroller().click()
+        time.sleep(2)
         self.lesson_right_arrow().click()
         time.sleep(2)
         self.scroll_down(0, 500)
         time.sleep(2)
         self.lesson_proceed_button().click()
+        print("Successfully added the API Testing Lesson.")
         # self.back_to_course().click()
         time.sleep(2)
 
@@ -1091,7 +1094,7 @@ class TestCreateCourse(Baseclass):
         time.sleep(2)
         self.assignment_save_button().click()
         time.sleep(10)
-        print("Assignment creating successfully")
+        print("Successfully added MCQ assignment.")
         self.back_to_course().click()
 
     """ Edit the Assignment """
@@ -1114,7 +1117,7 @@ class TestCreateCourse(Baseclass):
         obj.edit_assignment().send_keys("Thank You")
         time.sleep(2)
         self.assignment_save_button().click()
-        print("Successfully Edited")
+        print("Successfully Edited MCQ assignment.")
         self.back_to_course().click()
 
     """ Delete the assignment """
@@ -1126,6 +1129,7 @@ class TestCreateCourse(Baseclass):
         obj.delete_select_assignment().click()
         time.sleep(2)
         obj.delete_assignment().click()
+        print("Deleted the MCQ assignment.")
         # obj.confirm_delete_assignment().click()
         self.back_to_lesson().click()
         time.sleep(2)
@@ -1137,8 +1141,8 @@ class TestCreateCourse(Baseclass):
         obj = Paths(self.driver)
         self.preview_lesson().click()
         time.sleep(4)
-        self.remove_to_chatbot().click()
-        self.cut_chatbot().click()
+        # self.remove_to_chatbot().click()
+        # self.cut_chatbot().click()
         # self.clear_field(obj.enter_lesson_name())
         # time.sleep(2)
         # obj.enter_lesson_name().send_keys("Automation Testing")
@@ -1147,38 +1151,49 @@ class TestCreateCourse(Baseclass):
         self.scroll_down(0, 700)
         time.sleep(2)
         self.assignment_save_button().click()
+        print("Successfully Edited the API Testing lesson.")
         self.back_to_course().click()
-        time.sleep(20)
+        time.sleep(2)
 
     """ Delete the lesson """
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_delete_lesson1(self):
         obj = Paths(self.driver)
+        self.delete_lesson_option().click()
         self.delete_to_lesson().click()
         obj.confirm_delete_assignment().click()
+        print("Successfully deleted the API Testing lesson")
+        time.sleep(2)
 
     """ Edit the course """
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_edit_course1(self):
         obj = Paths(self.driver)
+        self.scroll_up(0, -900)
+        time.sleep(5)
         self.edit_to_course().click()
         self.edit_to_description().click()
-        time.sleep(7)
+        time.sleep(25)
         self.edit_to_update_course().click()
-        self.back_to_dashboard().click()
+        print("Successfully edited the course.")
+        time.sleep(5)
 
     """ Delete the course """
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_delete_course1(self):
         obj = Paths(self.driver)
-        time.sleep(2)
+
         # self.remove_to_chatbot().click()
-        self.cut_chatbot().click()
-        self.scroll_down(0, 300)
+        # self.cut_chatbot().click()
+        # self.scroll_down(0, 300)
+        # time.sleep(2)
+        self.back_to_dashboard().click()
         time.sleep(2)
         self.delete_option_course().click()
         self.delete_to_course().click()
         obj.confirm_delete_assignment().click()
+        print("Successfully Deleted the API Testing Course.")
+        time.sleep(20)

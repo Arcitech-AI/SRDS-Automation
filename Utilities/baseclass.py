@@ -230,7 +230,7 @@ class Baseclass:
         return self.driver.find_element(By.XPATH, "//button[normalize-space()='Back to Course']")
 
     def back_to_dashboard(self):
-        return self.driver.find_element(By.XPATH, "//img[@alt='logo']")
+        return self.driver.find_element(By.XPATH, "//i[@class='fa-solid fa-chevron-left']")
 
     def add_lesson_extra(self):
         return self.driver.find_element(By.XPATH, "//button[normalize-space()='Add Lesson']")
@@ -275,8 +275,11 @@ class Baseclass:
         return self.driver.find_element(By.XPATH,
                                         "//div[@id='chatbot-widget-message-bubbles-container']/button[@id='chatbot-widget-messages-close-icon']/img")
 
+    def delete_lesson_option(self):
+        return self.driver.find_element(By.XPATH, "//i[@class='fa-solid fa-ellipsis-vertical']")
+
     def delete_to_lesson(self):
-        return self.driver.find_element(By.XPATH, "//i[@class='fa-solid fa-trash']")
+        return self.driver.find_element(By.XPATH, "//p[normalize-space()='Delete Lesson']")
 
     def edit_to_course(self):
         return self.driver.find_element(By.XPATH, "//button[@class='view-course-details-edit-and-share-folder']")
