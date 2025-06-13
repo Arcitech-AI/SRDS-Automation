@@ -386,7 +386,7 @@ class TestCreateCourse(Baseclass):
         self.back_to_course().click()
         time.sleep(2)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_example_course(self):
         obj = Paths(self.driver)
         self.scroll_down(0, 300)
@@ -1014,7 +1014,7 @@ class TestCreateCourse(Baseclass):
 
     """Add, Edit, Delete(Course, Lesson, Assignment)"""
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_course1(self):
         obj = Paths(self.driver)
         obj.create_course().click()
@@ -1039,7 +1039,7 @@ class TestCreateCourse(Baseclass):
 
     """ Add lesson """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_lesson1(self):
         obj = Paths(self.driver)
         self.scroll_down(0, 800)
@@ -1066,7 +1066,7 @@ class TestCreateCourse(Baseclass):
 
     """ Add assignment """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_assignment1(self):
         obj = Paths(self.driver)
         # self.all_page()
@@ -1099,7 +1099,7 @@ class TestCreateCourse(Baseclass):
 
     """ Edit the Assignment """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_edit_assignment1(self):
         obj = Paths(self.driver)
         time.sleep(2)
@@ -1122,7 +1122,7 @@ class TestCreateCourse(Baseclass):
 
     """ Delete the assignment """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_delete_assignment1(self):
         obj = Paths(self.driver)
         time.sleep(2)
@@ -1136,7 +1136,7 @@ class TestCreateCourse(Baseclass):
 
     """ Edit the lesson """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_edit_lesson1(self):
         obj = Paths(self.driver)
         self.preview_lesson().click()
@@ -1157,7 +1157,7 @@ class TestCreateCourse(Baseclass):
 
     """ Delete the lesson """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_delete_lesson1(self):
         obj = Paths(self.driver)
         self.delete_lesson_option().click()
@@ -1168,14 +1168,15 @@ class TestCreateCourse(Baseclass):
 
     """ Edit the course """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_edit_course1(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -900)
         time.sleep(5)
         self.edit_to_course().click()
+        time.sleep(20)
         self.edit_to_description().click()
-        time.sleep(25)
+        time.sleep(40)
         self.edit_to_update_course().click()
         print("Successfully edited the course.")
         time.sleep(5)
@@ -1185,11 +1186,6 @@ class TestCreateCourse(Baseclass):
     # @pytest.mark.skip
     def test_delete_course1(self):
         obj = Paths(self.driver)
-
-        # self.remove_to_chatbot().click()
-        # self.cut_chatbot().click()
-        # self.scroll_down(0, 300)
-        # time.sleep(2)
         self.back_to_dashboard().click()
         time.sleep(2)
         self.delete_option_course().click()

@@ -256,8 +256,8 @@ class Baseclass:
     def cut_chatbot(self):
         return self.driver.find_element(By.XPATH, "//i[@class='fa-solid fa-x']")
 
-    def back_to_dashboard(self):
-        return self.driver.find_element(By.XPATH, "//span[normalize-space()='Back']")
+    # def back_to_dashboard(self):
+    #     return self.driver.find_element(By.XPATH, "//span[normalize-space()='Back']")
 
     def preview_lesson(self):
         return self.driver.find_element(By.XPATH, "//button[normalize-space()='Edit Lesson']")
