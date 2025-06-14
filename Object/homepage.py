@@ -148,22 +148,15 @@ class Paths:
     # open_third_lesson = (By.XPATH, "(//div[@id='CreateLesson-section']//div[3]//div[1]//div[1]//div[2]//button[1]")
     scroll_generator = (By.XPATH, "//button[@class='scroll-to-bottom-btn']")
 
+    # student invite
+
+    click_student_invite = (By.XPATH, "//div[@class='view-course-details-edit-and-share-folder view-course-details-share-btn']")
+    enter_student_email = (By.XPATH, "//input[@placeholder='example@example.com']")
+    add_mail_id = (By.XPATH, "//button[normalize-space()='Add']")
+    invite_student_button = (By.XPATH, "//button[normalize-space()='Invite']")
+
+
     # sign up functions
-
-    def open_previous_course(self):
-        return self.driver.find_element(*Paths.open_course)
-
-    def open_previous_lesson(self):
-        return self.driver.find_element(*Paths.open_second_lesson)
-
-    def open_previous_first_lesson(self):
-        return self.driver.find_element(*Paths.open_first_lesson)
-
-    def open_previous_third_lesson(self):
-        return self.driver.find_element(*Paths.open_third_lesson)
-
-    def scroller(self):
-        return self.driver.find_element(*Paths.scroll_generator)
 
     def start_button(self):
         return self.driver.find_element(*Paths.click_button)
@@ -429,3 +422,34 @@ class Paths:
 
     def confirm_schoology_sync(self):
         return self.driver.find_element(*Paths.confirm_schoology)
+
+    "open the course"
+
+    def open_previous_course(self):
+        return self.driver.find_element(*Paths.open_course)
+
+    def open_previous_lesson(self):
+        return self.driver.find_element(*Paths.open_second_lesson)
+
+    def open_previous_first_lesson(self):
+        return self.driver.find_element(*Paths.open_first_lesson)
+
+    def open_previous_third_lesson(self):
+        return self.driver.find_element(*Paths.open_third_lesson)
+
+    def scroller(self):
+        return self.driver.find_element(*Paths.scroll_generator)
+
+    "Invite flow"
+
+    def invite_student(self):
+        return self.driver.find_element(*Paths.click_student_invite)
+
+    def enter_mail_id(self):
+        return self.driver.find_element(*Paths.enter_student_email)
+
+    def add_mail(self):
+        return self.driver.find_element(*Paths.add_mail_id)
+
+    def invite(self):
+        return self.driver.find_element(*Paths.invite_student_button)
