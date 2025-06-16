@@ -173,23 +173,25 @@ class TestCreateCourse(Baseclass):
         obj.add_lesson().click()
         obj.enter_lesson_name().send_keys("Manual Testing")
         self.scroll_down(0, 500)
-        obj.enter_prompt_for_lesson().send_keys("Create a lesson on Manual Testing in 5 lines")
+        time.sleep(2)
+        obj.enter_prompt_for_lesson().send_keys("I want the lesson of Manual Testing.")
         time.sleep(2)
         obj.enter_prompt_for_lesson().send_keys(Keys.ENTER)
-        time.sleep(15)
+        time.sleep(40)
+        obj.scroller().click()
         self.lesson_right_arrow().click()
         time.sleep(2)
-        self.scroll_down(0, 800)
+        self.scroll_down(0, 500)
         time.sleep(2)
         self.lesson_proceed_button().click()
         print("Successfully added the Manual Testing lesson.")
         # self.back_to_course().click()
-        time.sleep(5)
+        time.sleep(2)
 
     """ create a Assignment with default rubric """
     """ create a mcq assignment """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_mcq(self):
         obj = Paths(self.driver)
         time.sleep(2)
@@ -220,9 +222,39 @@ class TestCreateCourse(Baseclass):
         print("Successfully added the MCQ assignment.")
         time.sleep(2)
 
+    def test_add_mcq1(self):
+        obj = Paths(self.driver)
+        time.sleep(2)
+        self.scroll_down(0, 1000)
+        time.sleep(10)
+        self.scroll_up(0, -500)
+        time.sleep(10)
+        self.add_new_assignment().click()
+        self.pop_up_assignment().click()
+        time.sleep(2)
+        self.scroll_down(0, 500)
+        self.assignment_name().send_keys("MCQ")
+        self.assignment_timer_add().click()
+        self.assignment_type_dropdown().send_keys(Keys.ENTER)
+        time.sleep(2)
+        self.mcq().click()
+        time.sleep(2)
+        self.input_assignment_prompt().send_keys(". give me the advanced questions")
+        self.assignment_create_button().click()
+        time.sleep(45)
+        obj.scroller().click()
+        time.sleep(5)
+        self.assignment_right_arrow_1().click()
+        time.sleep(5)
+        self.scroll_down(0, 700)
+        time.sleep(2)
+        self.assignment_save_button().click()
+        print("Successfully added the MCQ assignment.")
+        time.sleep(10)
+
     """ create a true or false assignment"""
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_tf(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -255,9 +287,39 @@ class TestCreateCourse(Baseclass):
         print("Successfully added the True or False assignment.")
         time.sleep(2)
 
+    def test_add_tf1(self):
+        obj = Paths(self.driver)
+        self.scroll_up(0, -500)
+        time.sleep(5)
+        self.add_new_assignment_1().click()
+        time.sleep(5)
+        self.add_new().click()
+        time.sleep(2)
+        self.assignment_rubric_continue_btn().click()
+        time.sleep(2)
+        self.scroll_down(0, 500)
+        time.sleep(7)
+        self.assignment_name().send_keys("TF")
+        self.assignment_timer_add().click()
+        self.assignment_type_dropdown().send_keys(Keys.ENTER)
+        self.tf().click()
+        self.input_assignment_prompt().send_keys(". give me the advanced level questions")
+        time.sleep(2)
+        self.assignment_create_button().click()
+        time.sleep(45)
+        obj.scroller().click()
+        time.sleep(5)
+        self.assignment_right_arrow_2().click()
+        time.sleep(5)
+        self.scroll_down(0, 700)
+        time.sleep(2)
+        self.assignment_save_button().click()
+        print("Successfully added the True or False assignment.")
+        time.sleep(10)
+
     """ create a fill in the blanks assignment """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_fitb(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -289,9 +351,37 @@ class TestCreateCourse(Baseclass):
         print("Successfully added the FITB assignment.")
         time.sleep(2)
 
+    def test_add_fitb1(self):
+        obj = Paths(self.driver)
+        self.scroll_up(0, -500)
+        time.sleep(5)
+        self.add_new_assignment_2().click()
+        time.sleep(5)
+        self.add_new().click()
+        time.sleep(2)
+        self.scroll_down(0, 500)
+        time.sleep(7)
+        self.assignment_name().send_keys("FITB")
+        self.assignment_timer_add().click()
+        self.assignment_type_dropdown().send_keys(Keys.ENTER)
+        self.fitb().click()
+        self.input_assignment_prompt().send_keys(". give me the advanced level questions")
+        time.sleep(2)
+        self.assignment_create_button().click()
+        time.sleep(45)
+        obj.scroller().click()
+        time.sleep(5)
+        self.assignment_right_arrow_3().click()
+        time.sleep(5)
+        self.scroll_down(0, 700)
+        time.sleep(2)
+        self.assignment_save_button().click()
+        print("Successfully added the FITB assignment.")
+        time.sleep(10)
+
     """ create a short answer assignment """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_short(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -323,9 +413,36 @@ class TestCreateCourse(Baseclass):
         print("Successfully added the Short answer assignment.")
         time.sleep(2)
 
+    def test_add_short1(self):
+        obj = Paths(self.driver)
+        self.scroll_up(0, -500)
+        time.sleep(5)
+        self.add_new_assignment_3().click()
+        time.sleep(5)
+        self.add_new().click()
+        time.sleep(2)
+        self.scroll_down(0, 500)
+        time.sleep(7)
+        self.assignment_name().send_keys("Short Answer")
+        self.assignment_timer_add().click()
+        self.assignment_type_dropdown().send_keys(Keys.ENTER)
+        self.short().click()
+        self.input_assignment_prompt().send_keys(". give me the advanced level questions")
+        time.sleep(2)
+        self.assignment_create_button().click()
+        time.sleep(45)
+        obj.scroller().click()
+        time.sleep(5)
+        self.assignment_right_arrow_4().click()
+        time.sleep(5)
+        self.scroll_down(0, 700)
+        time.sleep(2)
+        self.assignment_save_button().click()
+        print("Successfully added the short answer assignment.")
+        time.sleep(10)
     """ create a essay assignment """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_essay(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -357,9 +474,37 @@ class TestCreateCourse(Baseclass):
         print("Successfully added the Essay assignment.")
         time.sleep(2)
 
+    def test_add_essay1(self):
+        obj = Paths(self.driver)
+        self.scroll_up(0, -500)
+        time.sleep(5)
+        self.add_new_assignment_4().click()
+        time.sleep(5)
+        self.add_new().click()
+        time.sleep(2)
+        self.scroll_down(0, 500)
+        time.sleep(7)
+        self.assignment_name().send_keys("Essay")
+        self.assignment_timer_add().click()
+        self.assignment_type_dropdown().send_keys(Keys.ENTER)
+        self.essay().click()
+        self.input_assignment_prompt().send_keys(". give me the advanced level questions")
+        time.sleep(2)
+        self.assignment_create_button().click()
+        time.sleep(45)
+        obj.scroller().click()
+        time.sleep(5)
+        self.assignment_right_arrow_5().click()
+        time.sleep(5)
+        self.scroll_down(0, 700)
+        time.sleep(2)
+        self.assignment_save_button().click()
+        print("Successfully added the Essay assignment.")
+        time.sleep(10)
+
     """ create a mixed assignment """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_mixed(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -392,6 +537,34 @@ class TestCreateCourse(Baseclass):
         self.back_to_course().click()
         time.sleep(2)
 
+    def test_add_mixed1(self):
+        obj = Paths(self.driver)
+        self.scroll_up(0, -500)
+        time.sleep(5)
+        self.add_new_assignment_5().click()
+        time.sleep(5)
+        self.add_new().click()
+        time.sleep(2)
+        self.scroll_down(0, 500)
+        time.sleep(7)
+        self.assignment_name().send_keys("Mixed questions")
+        self.assignment_timer_add().click()
+        self.assignment_type_dropdown().send_keys(Keys.ENTER)
+        self.mixed().click()
+        self.input_assignment_prompt().send_keys(". give me the advanced level questions")
+        time.sleep(2)
+        self.assignment_create_button().click()
+        time.sleep(45)
+        obj.scroller().click()
+        time.sleep(5)
+        self.assignment_right_arrow_6().click()
+        time.sleep(5)
+        self.scroll_down(0, 700)
+        time.sleep(2)
+        self.assignment_save_button().click()
+        print("Successfully added the Mixed assignment.")
+        time.sleep(10)
+
     @pytest.mark.skip
     def test_example_course(self):
         obj = Paths(self.driver)
@@ -415,10 +588,11 @@ class TestCreateCourse(Baseclass):
         obj.enter_lesson_name().send_keys("Automation Testing")
         self.scroll_down(0, 500)
         time.sleep(2)
-        obj.enter_prompt_for_lesson().send_keys("Create a lesson on Automation Testing in 5 lines")
+        obj.enter_prompt_for_lesson().send_keys("I want the basic knowledge of Automation Testing.")
         time.sleep(2)
         obj.enter_prompt_for_lesson().send_keys(Keys.ENTER)
-        time.sleep(25)
+        time.sleep(40)
+        obj.scroller().click()
         self.lesson_right_arrow().click()
         time.sleep(2)
         self.scroll_down(0, 500)
@@ -1053,7 +1227,7 @@ class TestCreateCourse(Baseclass):
         self.scroll_up(0, -700)
         time.sleep(2)
         obj.invite_student().click()
-        obj.enter_mail_id().send_keys("omkarhundre@arcitech.ai")
+        obj.enter_mail_id().send_keys("ajay+27@arcitech.ai")
         obj.add_mail().click()
         obj.invite().click()
         print("Invited successfully")
