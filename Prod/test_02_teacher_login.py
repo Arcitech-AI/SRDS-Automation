@@ -10,8 +10,8 @@ class TestLoginTeacher(Baseclass):
     def test_check_url(self):
         log = self.getLogger()
         log.info("----- %s -----" % self.get_url())
-        assert "https://pre.srds.ai/" == self.get_url()
-        # assert "https://srds.ai/" == self.get_url()
+        # assert "https://pre.srds.ai/" == self.get_url()
+        assert "https://srds.ai/" == self.get_url()
 
     def test_teacher_empty_username(self):
         obj = Paths(self.driver)
@@ -52,7 +52,6 @@ class TestLoginTeacher(Baseclass):
         for otp_inp, otp in zip(otp_inputs, otp_sequence):
             time.sleep(0.2)
             otp_inp.send_keys(str(otp))
-
 
         obj.final_login_btn().click()
         time.sleep(2)

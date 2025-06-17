@@ -99,6 +99,7 @@ class TestLoginTeacher(Baseclass):
         obj.add_teacher_image().send_keys(file_path)
         obj.save_image().click()
         obj.profile_submit().click()
+        print("Teacher Profile successfully created.")
         time.sleep(10)
 
     def test_signup_user(self):
