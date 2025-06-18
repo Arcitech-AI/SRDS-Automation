@@ -192,7 +192,7 @@ class TestCreateCourse(Baseclass):
     """ create a mcq assignment """
 
     @pytest.mark.skip
-    def test_add_mcq1(self):
+    def test_add_mcq(self):
         obj = Paths(self.driver)
         time.sleep(2)
         self.scroll_down(0, 1000)
@@ -225,7 +225,7 @@ class TestCreateCourse(Baseclass):
     """ create a true or false assignment"""
 
     @pytest.mark.skip
-    def test_add_tf1(self):
+    def test_add_tf(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
         time.sleep(5)
@@ -258,7 +258,7 @@ class TestCreateCourse(Baseclass):
     """ create a fill in the blanks assignment """
 
     @pytest.mark.skip
-    def test_add_fitb1(self):
+    def test_add_fitb(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
         time.sleep(5)
@@ -289,7 +289,7 @@ class TestCreateCourse(Baseclass):
     """ create a short answer assignment """
 
     @pytest.mark.skip
-    def test_add_short1(self):
+    def test_add_short(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
         time.sleep(5)
@@ -320,7 +320,7 @@ class TestCreateCourse(Baseclass):
     """ create a essay assignment """
 
     @pytest.mark.skip
-    def test_add_essay1(self):
+    def test_add_essay(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
         time.sleep(5)
@@ -351,7 +351,7 @@ class TestCreateCourse(Baseclass):
     """ create a mixed assignment """
 
     @pytest.mark.skip
-    def test_add_mixed1(self):
+    def test_add_mixed(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
         time.sleep(5)
@@ -725,6 +725,7 @@ class TestCreateCourse(Baseclass):
         time.sleep(2)
         self.scroll_down(0, 500)
         self.assignment_name().send_keys("MCQ")
+        time.sleep(5)
         self.assignment_timer_add().click()
         self.assignment_type_dropdown().send_keys(Keys.ENTER)
         time.sleep(2)
@@ -778,6 +779,7 @@ class TestCreateCourse(Baseclass):
         self.scroll_down(0, 500)
         time.sleep(7)
         self.assignment_name().send_keys("TF")
+        time.sleep(5)
         self.assignment_timer_add().click()
         self.assignment_type_dropdown().send_keys(Keys.ENTER)
         self.tf().click()
@@ -831,6 +833,7 @@ class TestCreateCourse(Baseclass):
         self.scroll_down(0, 500)
         time.sleep(7)
         self.assignment_name().send_keys("FITB")
+        time.sleep(5)
         self.assignment_timer_add().click()
         self.assignment_type_dropdown().send_keys(Keys.ENTER)
         self.fitb().click()
@@ -884,6 +887,7 @@ class TestCreateCourse(Baseclass):
         self.scroll_down(0, 500)
         time.sleep(7)
         self.assignment_name().send_keys("Short")
+        time.sleep(5)
         self.assignment_timer_add().click()
         self.assignment_type_dropdown().send_keys(Keys.ENTER)
         self.short().click()
@@ -937,6 +941,7 @@ class TestCreateCourse(Baseclass):
         self.scroll_down(0, 500)
         time.sleep(7)
         self.assignment_name().send_keys("Essay")
+        time.sleep(5)
         self.assignment_timer_add().click()
         self.assignment_type_dropdown().send_keys(Keys.ENTER)
         self.essay().click()
@@ -990,6 +995,7 @@ class TestCreateCourse(Baseclass):
         self.scroll_down(0, 500)
         time.sleep(7)
         self.assignment_name().send_keys("Quiz")
+        time.sleep(5)
         self.assignment_timer_add().click()
         self.assignment_type_dropdown().send_keys(Keys.ENTER)
         self.mixed().click()
@@ -1047,6 +1053,9 @@ class TestCreateCourse(Baseclass):
         obj.add_mail().click()
         obj.invite().click()
         print("Invited successfully")
+        self.scroll_up(0, -700)
+        self.back_to_dashboard().click()
+        time.sleep(10)
 
     """Add, Edit, Delete(Course, Lesson, Assignment)"""
 
@@ -1222,6 +1231,8 @@ class TestCreateCourse(Baseclass):
     # @pytest.mark.skip
     def test_delete_course1(self):
         obj = Paths(self.driver)
+        self.scroll_up(0, -900)
+        time.sleep(5)
         self.back_to_dashboard().click()
         time.sleep(2)
         self.delete_option_course().click()
