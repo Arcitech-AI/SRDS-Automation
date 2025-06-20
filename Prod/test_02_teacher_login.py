@@ -29,19 +29,11 @@ class TestLoginTeacher(Baseclass):
         time.sleep(0.2)
 
     def test_teacher_positive_login(self):
-        file_path = "C:\\Users\\Admin\\PycharmProjects\\SRDS-Automation\\Prod\\last_teacher_email_index.txt"
+        email = "omkarh@arcitech.ai"
         obj = Paths(self.driver)
-        self.driver.refresh()
-
-        def read_file(path_file):
-            with open(path_file, 'r') as file:
-                data = file.read()
-            return data
-
-        file_data = read_file(file_path)
         self.clear_field(obj.enter_email())
         time.sleep(0.2)
-        obj.enter_email().send_keys(file_data)
+        obj.enter_email().send_keys(email)
         obj.click_code_button().click()
 
         # Verification code
@@ -55,7 +47,7 @@ class TestLoginTeacher(Baseclass):
 
         obj.final_login_btn().click()
         time.sleep(2)
-        self.getLogger().info(f"Login attempt successful with email: {file_data}")
+        self.getLogger().info(f"Login attempt successful with email: {email}")
 
     @pytest.fixture(params=Data.getTestData("user", "../testcases/login.xlsx"))
     def username_field(self, request):

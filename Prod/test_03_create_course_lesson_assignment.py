@@ -13,24 +13,15 @@ class TestCreateCourse(Baseclass):
     # Existing Teacher Login
     # @pytest.mark.skip
     def test_teacher_login(self):
+        email = "omkarh@arcitech.ai"
         obj = Paths(self.driver)
         obj.start_button().click()
         obj.login_verification_code().click()
         obj.enter_email().click()
-        file_path = "C:\\Users\\Admin\\PycharmProjects\\SRDS-Automation\\Prod\\last_teacher_email_index.txt"
         self.driver.refresh()
-
-        # Read a file
-        # @pytest.mark.skip
-        def read_file(path_file):
-            with open(path_file, 'r') as file:
-                data = file.read()
-            return data
-
-        file_data = read_file(file_path)
         self.clear_field(obj.enter_email())
         time.sleep(0.2)
-        obj.enter_email().send_keys(file_data)
+        obj.enter_email().send_keys(email)
         time.sleep(0.2)
         obj.click_code_button().click()
 
@@ -45,7 +36,7 @@ class TestCreateCourse(Baseclass):
 
         obj.final_login_btn().click()
         time.sleep(2)
-        self.getLogger().info(f"Login attempt successful with email: {file_data}")
+        self.getLogger().info(f"Login attempt successful with email: {email}")
 
     # create a course
     # @pytest.mark.skip
@@ -167,8 +158,8 @@ class TestCreateCourse(Baseclass):
     # @pytest.mark.skip
     def test_add_lesson(self):
         obj = Paths(self.driver)
-        time.sleep(2)
-        self.scroll_down(0, 800)
+        time.sleep(5)
+        self.scroll_down(0, 900)
         time.sleep(5)
         obj.add_lesson().click()
         obj.enter_lesson_name().send_keys("Manual Testing")
@@ -1129,7 +1120,9 @@ class TestCreateCourse(Baseclass):
         time.sleep(2)
         self.scroll_down(0, 500)
         self.assignment_name().send_keys("MCQ")
+        time.sleep(5)
         self.assignment_timer_add().click()
+        time.sleep(2)
         self.assignment_type_dropdown().send_keys(Keys.ENTER)
         time.sleep(2)
         self.mcq().click()
@@ -1191,12 +1184,6 @@ class TestCreateCourse(Baseclass):
     def test_edit_lesson1(self):
         obj = Paths(self.driver)
         self.preview_lesson().click()
-        time.sleep(4)
-        # self.remove_to_chatbot().click()
-        # self.cut_chatbot().click()
-        # self.clear_field(obj.enter_lesson_name())
-        # time.sleep(2)
-        # obj.enter_lesson_name().send_keys("Automation Testing")
         time.sleep(2)
         self.write_lesson().send_keys(" Thank You")
         self.scroll_down(0, 700)
