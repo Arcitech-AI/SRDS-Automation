@@ -170,6 +170,7 @@ class TestCreateCourse(Baseclass):
         obj.enter_prompt_for_lesson().send_keys(Keys.ENTER)
         time.sleep(40)
         obj.scroller().click()
+        time.sleep(5)
         self.lesson_right_arrow().click()
         time.sleep(2)
         self.scroll_down(0, 500)
@@ -185,8 +186,6 @@ class TestCreateCourse(Baseclass):
     # @pytest.mark.skip
     def test_add_mcq(self):
         obj = Paths(self.driver)
-        time.sleep(2)
-        self.scroll_down(0, 1000)
         time.sleep(10)
         self.scroll_up(0, -500)
         time.sleep(10)
@@ -399,6 +398,7 @@ class TestCreateCourse(Baseclass):
         obj.enter_prompt_for_lesson().send_keys(Keys.ENTER)
         time.sleep(40)
         obj.scroller().click()
+        time.sleep(5)
         self.lesson_right_arrow().click()
         time.sleep(2)
         self.scroll_down(0, 500)
@@ -702,6 +702,7 @@ class TestCreateCourse(Baseclass):
         obj.enter_prompt_for_lesson().send_keys(Keys.ENTER)
         time.sleep(40)
         obj.scroller().click()
+        time.sleep(5)
         self.lesson_right_arrow().click()
         time.sleep(2)
         self.scroll_down(0, 500)
