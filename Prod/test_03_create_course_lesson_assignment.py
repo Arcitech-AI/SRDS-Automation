@@ -691,6 +691,8 @@ class TestCreateCourse(Baseclass):
     # @pytest.mark.skip
     def test_add_lesson3(self):
         obj = Paths(self.driver)
+        self.scroll_up(0, -900)
+        time.sleep(10)
         self.add_lesson_extra().click()
         obj.enter_lesson_name().send_keys("Performance Testing")
         self.scroll_down(0, 500)
