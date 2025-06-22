@@ -39,18 +39,18 @@ class TestCreateCourse(Baseclass):
         self.getLogger().info(f"Login attempt successful with email: {email}")
 
     # create a course
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_create_course(self):
         obj = Paths(self.driver)
         time.sleep(2)
         obj.create_course().click()
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_empty_course_name(self):
         obj = Paths(self.driver)
         obj.course_name().send_keys(Keys.ENTER)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_negative_course_name(self):
         obj = Paths(self.driver)
         negative_data = ["!@#$qwer", "!#$%^asdfg1234", "!@#$%^&*()_+=<>?,./"]
@@ -69,7 +69,7 @@ class TestCreateCourse(Baseclass):
         time.sleep(2)
         obj.course_name().send_keys("Software Testing")
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_negative_and_positive_subject_name(self):
         obj = Paths(self.driver)
         obj.select_course_subject_dropdown().click()
@@ -81,7 +81,7 @@ class TestCreateCourse(Baseclass):
                 break
         time.sleep(5)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_select_start_std(self):
         obj = Paths(self.driver)
         obj.click_start_std_dropdown().click()
@@ -99,7 +99,7 @@ class TestCreateCourse(Baseclass):
             except StaleElementReferenceException:
                 print("StaleElementReferenceException encountered. Re-fetching the standard list.")
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_select_end_std(self):
         obj = Paths(self.driver)
         obj.click_end_std_dropdown().click()
@@ -117,7 +117,7 @@ class TestCreateCourse(Baseclass):
             except StaleElementReferenceException:
                 print("StaleElementReferenceException encountered. Re-fetching the standard list.")
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_select_start_date(self):
         obj = Paths(self.driver)
         obj.click_select_calendar().click()
@@ -134,14 +134,14 @@ class TestCreateCourse(Baseclass):
         obj.click_select_end_calendar().click()
         obj.click_select_end_date().click()
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_ai_course_description(self):
         obj = Paths(self.driver)
         time.sleep(10)
         obj.enhanced_course_description().click()
         time.sleep(30)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_course_image(self):
         obj = Paths(self.driver)
         obj.generate_image().click()
@@ -155,7 +155,7 @@ class TestCreateCourse(Baseclass):
         time.sleep(2)
 
     "Create a Lesson"
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_lesson(self):
         obj = Paths(self.driver)
         time.sleep(5)
@@ -183,7 +183,7 @@ class TestCreateCourse(Baseclass):
     """ create a Assignment with default rubric """
     """ create a mcq assignment """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_mcq(self):
         obj = Paths(self.driver)
         time.sleep(10)
@@ -215,7 +215,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a true or false assignment"""
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_tf(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -249,7 +249,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a fill in the blanks assignment """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_fitb(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -281,7 +281,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a short answer assignment """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_short(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -313,7 +313,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a essay assignment """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_essay(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -345,7 +345,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a mixed assignment """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_mixed(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -392,7 +392,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a 2nd lesson """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_lesson2(self):
         obj = Paths(self.driver)
         self.add_lesson_extra().click()
@@ -416,7 +416,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a mcq with custom rubric """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_mcq_with_custom_rubric(self):
         obj = Paths(self.driver)
         time.sleep(2)
@@ -463,7 +463,7 @@ class TestCreateCourse(Baseclass):
         print("Successfully added the MCQ custom rubric.")
         time.sleep(10)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_tf_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -508,7 +508,7 @@ class TestCreateCourse(Baseclass):
         print("Successfully added the True or False custom rubric.")
         time.sleep(10)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_fitb_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -553,7 +553,7 @@ class TestCreateCourse(Baseclass):
         print("Successfully added the FITB custom rubric.")
         time.sleep(10)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_short_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -600,7 +600,7 @@ class TestCreateCourse(Baseclass):
 
     """ create a essay assignment """
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_essay_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -645,7 +645,7 @@ class TestCreateCourse(Baseclass):
         print("Successfully added the Essay custom rubric.")
         time.sleep(50)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_mixed_with_custom_rubric(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -500)
@@ -694,7 +694,7 @@ class TestCreateCourse(Baseclass):
 
     """Add on the 3rd Lesson"""
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_lesson3(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -900)
@@ -718,7 +718,7 @@ class TestCreateCourse(Baseclass):
         # self.back_to_course().click()
         time.sleep(2)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_mcq_with_ai_rubric(self):
         obj = Paths(self.driver)
         time.sleep(2)
@@ -772,7 +772,7 @@ class TestCreateCourse(Baseclass):
         print("Successfully added the MCQ ai rubric.")
         time.sleep(10)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_tf_with_ai_rubric(self):
         obj = Paths(self.driver)
         time.sleep(2)
@@ -826,7 +826,7 @@ class TestCreateCourse(Baseclass):
         print("Successfully added the True or False ai rubric.")
         time.sleep(10)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_fitb_with_ai_rubric(self):
         obj = Paths(self.driver)
         time.sleep(2)
@@ -880,7 +880,7 @@ class TestCreateCourse(Baseclass):
         print("Successfully added the FITB ai rubric.")
         time.sleep(10)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_short_with_ai_rubric(self):
         obj = Paths(self.driver)
         time.sleep(2)
@@ -934,7 +934,7 @@ class TestCreateCourse(Baseclass):
         print("Successfully added the Short answer rubric.")
         time.sleep(10)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_essay_with_ai_rubric(self):
         obj = Paths(self.driver)
         time.sleep(2)
@@ -988,7 +988,7 @@ class TestCreateCourse(Baseclass):
         print("Successfully added the Essay ai rubric.")
         time.sleep(10)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_add_mixed_with_ai_rubric(self):
         obj = Paths(self.driver)
         time.sleep(2)
@@ -1049,7 +1049,7 @@ class TestCreateCourse(Baseclass):
 
     "Student Invite flow"
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_student_invite(self):
         obj = Paths(self.driver)
         self.scroll_up(0, -700)
@@ -1086,7 +1086,7 @@ class TestCreateCourse(Baseclass):
         self.test_ai_course_description()
         self.test_course_image()
         print("Successfully created the API Course.")
-        time.sleep(2)
+        time.sleep(5)
 
     """ Add lesson """
 
@@ -1094,7 +1094,7 @@ class TestCreateCourse(Baseclass):
     def test_add_lesson1(self):
         obj = Paths(self.driver)
         self.scroll_down(0, 800)
-        time.sleep(5)
+        time.sleep(7)
         obj.add_lesson().click()
         time.sleep(2)
         obj.enter_lesson_name().send_keys("API Testing")
@@ -1236,7 +1236,9 @@ class TestCreateCourse(Baseclass):
         self.scroll_up(0, -900)
         time.sleep(5)
         self.back_to_dashboard().click()
-        time.sleep(2)
+        time.sleep(5)
+        self.scroll_up(0, 300)
+        time.sleep(5)
         self.delete_option_course().click()
         self.delete_to_course().click()
         obj.confirm_delete_assignment().click()
