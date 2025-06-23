@@ -155,8 +155,14 @@ class Paths:
     add_mail_id = (By.XPATH, "//button[normalize-space()='Add']")
     invite_student_button = (By.XPATH, "//button[normalize-space()='Invite']")
 
+    # student profile create
 
-    # sign up functions
+    student_setup_profile = (By.XPATH, "//button[normalize-space()='Create Profile']")
+    student_enter_name = (By.XPATH, "(//input[@placeholder='Full name'])[3]")
+    student_dropdown_grade = (By.XPATH, "(//select[@name='grade'])[3]")
+    student_grades = (By.XPATH, "//option[@value='9']")
+
+
 
     def start_button(self):
         return self.driver.find_element(*Paths.click_button)
@@ -453,3 +459,18 @@ class Paths:
 
     def invite(self):
         return self.driver.find_element(*Paths.invite_student_button)
+
+
+    "Student profile fLow"
+
+    def create_student_profile(self):
+        return self.driver.find_element(*Paths.student_setup_profile)
+
+    def student_name(self):
+        return self.driver.find_element(*Paths.student_enter_name)
+
+    def student_grades_dropdown(self):
+        return self.driver.find_element(*Paths.student_dropdown_grade)
+
+    def student_select_grade(self):
+        return self.driver.find_elements(*Paths.student_grades)

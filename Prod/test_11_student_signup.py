@@ -1,6 +1,9 @@
 import os
 import time
+import uuid
+
 import pytest
+from selenium.common import StaleElementReferenceException
 
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver import ActionChains
@@ -18,7 +21,8 @@ class TestSignUpTeacher(Baseclass):
     def test_check_url(self):
         log = self.getLogger()
         log.info("----- %s -----" % self.get_url())
-        assert "https://qat.srds.ai/" == self.get_url()
+        assert "https://pre.srds.ai/" == self.get_url()
+        # assert "https://srds.ai/" == self.get_url()
 
     def test_student_empty_username(self):
         obj = Paths(self.driver)
@@ -41,28 +45,22 @@ class TestSignUpTeacher(Baseclass):
         assert "Please enter" in showing_error_msg
         time.sleep(0.2)
 
+    def test_generate_unique_email(self):
+        timestamp = int(time.time())
+        unique_id = str(uuid.uuid4().hex[:6])
+        return f"test_{timestamp}_{unique_id}@arcitech.ai"
+
     def test_student_positive_signup(self):
         obj = Paths(self.driver)
-        last_email = get_last_student_email_index()
-        if last_email:
-            try:
-                last_index = int(last_email.split('+')[1].split('@')[0])
-                new_index = last_index + 1
-            except (IndexError, ValueError) as e:
-                print(f"Error processing last email: {e}")
-                new_index = 2000
-        else:
-            new_index = 2000
-        email = generate_sequential_email(start=new_index)
+        email = self.test_generate_unique_email()
         print(f"Generated Email: {email}")
-        save_new_student_email_index(email)
+        self.getLogger().info(f"Signup with email: {email}")
+        save_new_teacher_email_index(email)
         self.driver.refresh()
         obj.enter_email().send_keys(email)
         obj.click_code_button().click()
 
-        # verification code
-
-        obj = Paths(self.driver)
+        # Verification code
         otp_sequence = [2, 8, 0, 5, 9, 9]
         otp_inputs = obj.enter_code()
 
@@ -70,9 +68,29 @@ class TestSignUpTeacher(Baseclass):
             time.sleep(0.2)
             otp_inp.send_keys(str(otp))
 
+        time.sleep(1)
         obj.signup_otp_confirm_btn().click()
-        time.sleep(10)
         self.getLogger().info(f"Congratulation {email} has been registered")
+        time.sleep(5)
+
+    def test_teacher_positive_profile(self):
+        obj = Paths(self.driver)
+        obj.create_student_profile().click()
+        obj.student_name().send_keys("Student")
+        # obj.student_grades_dropdown().click()
+        while True:
+            try:
+                std = obj.student_grades_dropdown().click()
+                for i in std:
+                    if i.text == "Grade 7":
+                        i.click()
+                        print("Std is selected successfully")
+                        return
+                break
+
+            except StaleElementReferenceException:
+                print("StaleElementReferenceException encountered. Re-fetching the standard list.")
+        time.sleep(20)
 
     @pytest.fixture(params=Data.getTestData("user", "../testcases/sign_up.xlsx"))
     def username_field(self, request):
