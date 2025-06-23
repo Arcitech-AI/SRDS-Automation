@@ -1137,6 +1137,7 @@ class TestCreateCourse(Baseclass):
         self.mcq().click()
         time.sleep(2)
         self.input_assignment_prompt().send_keys(". give me the 10 questions")
+        self.scroll_down(0, 100)
         time.sleep(10)
         self.assignment_create_button().click()
         time.sleep(45)
