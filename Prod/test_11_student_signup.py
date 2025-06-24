@@ -77,20 +77,41 @@ class TestSignUpTeacher(Baseclass):
         obj = Paths(self.driver)
         obj.create_student_profile().click()
         obj.student_name().send_keys("Student")
-        # obj.student_grades_dropdown().click()
+        obj.student_grades_dropdown().click()
+        A = obj.student_select_grade()
+
         while True:
             try:
-                std = obj.student_grades_dropdown().click()
-                for i in std:
-                    if i.text == "Grade 7":
+                for i in A:
+                    if i.text == "Grade 7" and i.is_displayed():
                         i.click()
                         print("Std is selected successfully")
-                        return
+                        break
                 break
 
             except StaleElementReferenceException:
                 print("StaleElementReferenceException encountered. Re-fetching the standard list.")
-        time.sleep(20)
+                A = obj.student_select_grade()
+                time.sleep(12)
+
+        obj.student_gender_dropdown().click()
+        obj.student_selected_gender().click()
+        time.sleep(5)
+        obj.open_calender().click()
+        time.sleep(5)
+        obj.select_year().click()
+        time.sleep(5)
+        obj.decide_year().click()
+        time.sleep(5)
+        obj.back_year().click()
+        time.sleep(5)
+        obj.birth_year().click()
+        time.sleep(5)
+        obj.birth_month().click()
+        time.sleep(5)
+        obj.birth_date().click()
+
+    time.sleep(20)
 
     @pytest.fixture(params=Data.getTestData("user", "../testcases/sign_up.xlsx"))
     def username_field(self, request):

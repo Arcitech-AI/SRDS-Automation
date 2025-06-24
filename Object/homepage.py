@@ -150,7 +150,8 @@ class Paths:
 
     # student invite
 
-    click_student_invite = (By.XPATH, "//div[@class='view-course-details-edit-and-share-folder view-course-details-share-btn']")
+    click_student_invite = (
+    By.XPATH, "//div[@class='view-course-details-edit-and-share-folder view-course-details-share-btn']")
     enter_student_email = (By.XPATH, "//input[@placeholder='example@example.com']")
     add_mail_id = (By.XPATH, "//button[normalize-space()='Add']")
     invite_student_button = (By.XPATH, "//button[normalize-space()='Invite']")
@@ -160,9 +161,16 @@ class Paths:
     student_setup_profile = (By.XPATH, "//button[normalize-space()='Create Profile']")
     student_enter_name = (By.XPATH, "(//input[@placeholder='Full name'])[3]")
     student_dropdown_grade = (By.XPATH, "(//select[@name='grade'])[3]")
-    student_grades = (By.XPATH, "//option[@value='9']")
-
-
+    student_grades = (By.XPATH, "(//option[@value='9'][normalize-space()='Grade 7'])[3]")
+    student_gender = (By.XPATH, "(//select[@name='gender'])[3]")
+    student_select_gender = (By.XPATH, "(//option[@value='1'][normalize-space()='Male'])[3]")
+    student_open_calender = (By.XPATH, "(//input[@placeholder='MM:DD:YYYY'])[3]")
+    student_select_year = (By.XPATH, "//th[normalize-space()='January 2025']")
+    student_decide_year = (By.XPATH, "//th[normalize-space()='2025']")
+    student_back_to_year = (By.XPATH, "(//th[@class='rdtPrev'])[3]")
+    student_select_birth_year = (By.XPATH, "//table/tbody/tr[1]/td[1]")
+    student_select_birth_month = (By.XPATH, "//table/tbody/tr[1]/td[1]")
+    student_select_birth_date = (By.XPATH, "//table/tbody/tr[1]/td[1]")
 
     def start_button(self):
         return self.driver.find_element(*Paths.click_button)
@@ -460,7 +468,6 @@ class Paths:
     def invite(self):
         return self.driver.find_element(*Paths.invite_student_button)
 
-
     "Student profile fLow"
 
     def create_student_profile(self):
@@ -474,3 +481,38 @@ class Paths:
 
     def student_select_grade(self):
         return self.driver.find_elements(*Paths.student_grades)
+
+    def student_gender_dropdown(self):
+        return self.driver.find_element(*Paths.student_gender)
+
+    def student_selected_gender(self):
+        return self.driver.find_element(*Paths.student_select_gender)
+
+    # student_open_calender = (By.XPATH, "(//input[@placeholder='MM:DD:YYYY'])[3]")
+    # student_select_year = (By.XPATH, "//th[normalize-space()='January 2025']")
+    # student_decide_year = (By.XPATH, "//th[normalize-space()='2025']")
+    # student_back_to_year = (By.XPATH, "(//th[@class='rdtPrev'])[3]")
+    # student_select_birth_year = (By.XPATH, "//table/tbody/tr[1]/td[1]")
+    # student_select_birth_month = (By.XPATH, "//table/tbody/tr[1]/td[1]")
+    # student_select_birth_date = (By.XPATH, "//table/tbody/tr[1]/td[1]")
+
+    def open_calender(self):
+        return self.driver.find_element(*Paths.student_open_calender)
+
+    def select_year(self):
+        return self.driver.find_element(*Paths.student_select_year)
+
+    def decide_year(self):
+        return self.driver.find_element(*Paths.student_decide_year)
+
+    def back_year(self):
+        return self.driver.find_element(*Paths.student_back_to_year)
+
+    def birth_year(self):
+        return self.driver.find_element(*Paths.student_select_birth_year)
+
+    def birth_month(self):
+        return self.driver.find_element(*Paths.student_select_birth_month)
+
+    def birth_date(self):
+        return self.driver.find_element(*Paths.student_select_birth_date)
