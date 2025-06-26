@@ -165,12 +165,27 @@ class Paths:
     student_gender = (By.XPATH, "(//select[@name='gender'])[3]")
     student_select_gender = (By.XPATH, "(//option[@value='1'][normalize-space()='Male'])[3]")
     student_open_calender = (By.XPATH, "(//input[@placeholder='MM:DD:YYYY'])[3]")
-    student_select_year = (By.XPATH, "//th[normalize-space()='January 2025']")
-    student_decide_year = (By.XPATH, "//th[normalize-space()='2025']")
-    student_back_to_year = (By.XPATH, "(//th[@class='rdtPrev'])[3]")
+    student_select_year = (By.XPATH, "(//th[@class='rdtSwitch'])[3]")
+
+    student_decide_year = (By.CSS_SELECTOR, "div[class='rdtMonths'] th[class='rdtSwitch']")
+    student_back_to_year = (By.XPATH, "(//span[contains(text(),'‹')])[3]")
     student_select_birth_year = (By.XPATH, "//table/tbody/tr[1]/td[1]")
     student_select_birth_month = (By.XPATH, "//table/tbody/tr[1]/td[1]")
     student_select_birth_date = (By.XPATH, "//table/tbody/tr[1]/td[1]")
+    student_language_dropdown = (By.XPATH, "(//select[@id='gendar-select-feild'])[9]")
+    student_select_language = (By.XPATH, "(//option[@value='1'][normalize-space()='English'])[3]")
+    student_location = (By.XPATH, "(//input[@placeholder='Enter a location'])[3]")
+    student_next_button = (By.XPATH, "(//button[contains(text(),'Next')])[3]")
+    student_empty_error_msg = (By.XPATH, "(//p[contains(text(),'This field is required')])[11]")
+
+    # Introduce yourself
+
+    student_enter_text = (By.XPATH, "//div[3]//div[2]//textarea[1]")
+
+    # Why are you interested in
+
+    student_select_interested_subject = (By.XPATH, "(//a[contains(text(),'football')])[3]")
+    student_final_btn = (By.XPATH, "(//button[contains(text(),'Finish')])[3]")
 
     def start_button(self):
         return self.driver.find_element(*Paths.click_button)
@@ -516,3 +531,29 @@ class Paths:
 
     def birth_date(self):
         return self.driver.find_element(*Paths.student_select_birth_date)
+
+    def language_dropdown(self):
+        return self.driver.find_element(*Paths.student_language_dropdown)
+
+    def select_student_language(self):
+        return self.driver.find_element(*Paths.student_select_language)
+
+    def location(self):
+        return self.driver.find_element(*Paths.student_location)
+
+    def profile_next_button(self):
+        return self.driver.find_element(*Paths.student_next_button)
+
+    def check_to_name_validation(self):
+        return self.driver.find_element(*Paths.student_empty_error_msg)
+
+    def enter_msg(self):
+        return self.driver.find_element(*Paths.student_enter_text)
+
+    def selected_interested_subject(self):
+        return self.driver.find_element(*Paths.student_select_interested_subject)
+
+    def click_finish_btn(self):
+        return self.driver.find_element(*Paths.student_final_btn)
+
+

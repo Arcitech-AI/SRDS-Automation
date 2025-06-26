@@ -1,6 +1,7 @@
 import os
 import time
 import uuid
+from datetime import datetime
 
 import pytest
 from selenium.common import StaleElementReferenceException
@@ -11,6 +12,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support import select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
+
+import Object.homepage
 from Object.homepage import Paths
 from Utilities.baseclass import *
 from testdata.testcase_data import *
@@ -48,6 +51,7 @@ class TestSignUpTeacher(Baseclass):
     def test_generate_unique_email(self):
         timestamp = int(time.time())
         unique_id = str(uuid.uuid4().hex[:6])
+        # assert '@arcitech.ai' in generated_email, f"Expected an email with '@arcitech.ai', but got {generated_email}"
         return f"test_{timestamp}_{unique_id}@arcitech.ai"
 
     def test_student_positive_signup(self):
@@ -73,9 +77,17 @@ class TestSignUpTeacher(Baseclass):
         self.getLogger().info(f"Congratulation {email} has been registered")
         time.sleep(5)
 
-    def test_teacher_positive_profile(self):
+    def test_teacher_negative_profile(self):
         obj = Paths(self.driver)
         obj.create_student_profile().click()
+        obj.profile_next_button().click()
+        time.sleep(5)
+        validation = obj.check_to_name_validation().text
+        assert 'This field is required' in validation
+
+    def test_teacher_positive_profile(self):
+        obj = Paths(self.driver)
+
         obj.student_name().send_keys("Student")
         obj.student_grades_dropdown().click()
         A = obj.student_select_grade()
@@ -100,18 +112,53 @@ class TestSignUpTeacher(Baseclass):
         obj.open_calender().click()
         time.sleep(5)
         obj.select_year().click()
+
         time.sleep(5)
-        obj.decide_year().click()
-        time.sleep(5)
+
+        current_date = datetime.now()
+        target_year = current_date.year - 10
+        target_month = current_date.month
+        target_day = current_date.day
+
+        while True:
+            displayed_year_month = obj.select_year()
+            print(displayed_year_month)
+            break
+
+        displayed_year, displayed_month = displayed_year_month.split(' ')
+        displayed_year = int(displayed_year)
+        if displayed_year == target_year:
+            obj.decide_year().click()
+            time.sleep(5)
+        # for i in range(6):
+
         obj.back_year().click()
         time.sleep(5)
-        obj.birth_year().click()
-        time.sleep(5)
-        obj.birth_month().click()
-        time.sleep(5)
-        obj.birth_date().click()
+        # obj.birth_year().click()
+        # time.sleep(5)
+        # obj.birth_month().click()
+        # time.sleep(5)
+        # obj.birth_date().click()
 
-    time.sleep(20)
+
+
+        # obj.language_dropdown().click()
+        # obj.select_student_language().click()
+        # obj.location().send_keys('Thane')
+        # obj.location_dropdown().click()
+        # time.sleep(2)
+        # obj.profile_next_button().click()
+        #
+        # # Enter the descriptions of profile
+        # obj.enter_msg().send_keys(" I am brave student. my fav subject is English. ")
+        # time.sleep(20)
+        # obj.profile_next_button().click()
+        #
+        # # Select Interested subject
+        # obj.selected_interested_subject().click()
+        # obj.click_finish_btn().click()
+        #
+        # time.sleep(20)
 
     @pytest.fixture(params=Data.getTestData("user", "../testcases/sign_up.xlsx"))
     def username_field(self, request):
