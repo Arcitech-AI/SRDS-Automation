@@ -40,6 +40,7 @@ class TestAssignmentSubmission(Baseclass):
 
     def test_submissions(self):
         obj = Paths(self.driver)
+        time.sleep(10)
         obj.click_on_my_courses().click()
         obj.click_active_course().click()
         obj.click_go_to_courses().click()
