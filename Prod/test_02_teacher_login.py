@@ -46,8 +46,8 @@ class TestLoginTeacher(Baseclass):
             otp_inp.send_keys(str(otp))
 
         obj.final_login_btn().click()
-        time.sleep(2)
         self.getLogger().info(f"Login attempt successful with email: {email}")
+        time.sleep(2)
 
     @pytest.fixture(params=Data.getTestData("user", "../testcases/login.xlsx"))
     def username_field(self, request):

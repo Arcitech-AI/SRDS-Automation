@@ -151,7 +151,7 @@ class Paths:
     # student invite
 
     click_student_invite = (
-    By.XPATH, "//div[@class='view-course-details-edit-and-share-folder view-course-details-share-btn']")
+        By.XPATH, "//div[@class='view-course-details-edit-and-share-folder view-course-details-share-btn']")
     enter_student_email = (By.XPATH, "//input[@placeholder='example@example.com']")
     add_mail_id = (By.XPATH, "//button[normalize-space()='Add']")
     invite_student_button = (By.XPATH, "//button[normalize-space()='Invite']")
@@ -169,8 +169,8 @@ class Paths:
 
     student_decide_year = (By.CSS_SELECTOR, "div[class='rdtMonths'] th[class='rdtSwitch']")
     student_back_to_year = (By.XPATH, "(//span[contains(text(),'‹')])[3]")
-    student_select_birth_year = (By.XPATH, "//table/tbody/tr[1]/td[1]")
-    student_select_birth_month = (By.XPATH, "//table/tbody/tr[1]/td[1]")
+    student_select_birth_year = (By.XPATH, "//td[@class='rdtMonth' and text()='Jun']")
+    student_select_birth_month = (By.XPATH, "//td[@class='rdtDay' and text()='21']")
     student_select_birth_date = (By.XPATH, "//table/tbody/tr[1]/td[1]")
     student_language_dropdown = (By.XPATH, "(//select[@id='gendar-select-feild'])[9]")
     student_select_language = (By.XPATH, "(//option[@value='1'][normalize-space()='English'])[3]")
@@ -186,6 +186,16 @@ class Paths:
 
     student_select_interested_subject = (By.XPATH, "(//a[contains(text(),'football')])[3]")
     student_final_btn = (By.XPATH, "(//button[contains(text(),'Finish')])[3]")
+
+    # Open my courses
+
+    go_to_my_courses = (By.XPATH, "//a[normalize-space()='My Courses']")
+    active_courses = (By.XPATH, "//button[normalize-space()='active courses (1)']")
+    go_to_course = (By.XPATH, "//button[normalize-space()='Go to course']")
+    start_lesson = (By.XPATH, "(//button[@class='Student-Active-start-Lesson'])[1]")
+    click_on_assignment_btn = (By.XPATH, "//div[@class='lesson-andassignment-tab-container']/button[2]")
+    mcq_assignment = (By.XPATH, "(//button[@class='maltiple-assignment-start-btn'][normalize-space()='Start Assignment'])[6]")
+    start_assignment = (By.XPATH, "//button[contains(text(),'Start Assignment')]")
 
     def start_button(self):
         return self.driver.find_element(*Paths.click_button)
@@ -503,14 +513,6 @@ class Paths:
     def student_selected_gender(self):
         return self.driver.find_element(*Paths.student_select_gender)
 
-    # student_open_calender = (By.XPATH, "(//input[@placeholder='MM:DD:YYYY'])[3]")
-    # student_select_year = (By.XPATH, "//th[normalize-space()='January 2025']")
-    # student_decide_year = (By.XPATH, "//th[normalize-space()='2025']")
-    # student_back_to_year = (By.XPATH, "(//th[@class='rdtPrev'])[3]")
-    # student_select_birth_year = (By.XPATH, "//table/tbody/tr[1]/td[1]")
-    # student_select_birth_month = (By.XPATH, "//table/tbody/tr[1]/td[1]")
-    # student_select_birth_date = (By.XPATH, "//table/tbody/tr[1]/td[1]")
-
     def open_calender(self):
         return self.driver.find_element(*Paths.student_open_calender)
 
@@ -556,4 +558,23 @@ class Paths:
     def click_finish_btn(self):
         return self.driver.find_element(*Paths.student_final_btn)
 
+    def click_on_my_courses(self):
+        return self.driver.find_element(*Paths.go_to_my_courses)
 
+    def click_active_course(self):
+        return self.driver.find_element(*Paths.active_courses)
+
+    def click_go_to_courses(self):
+        return self.driver.find_element(*Paths.go_to_course)
+
+    def click_start_lesson(self):
+        return self.driver.find_element(*Paths.start_lesson)
+
+    def click_on_the_assignments(self):
+        return self.driver.find_element(*Paths.assignments_btn)
+
+    def click_mcq_assignment(self):
+        return self.driver.find_element(*Paths.mcq_assignment)
+
+    def click_start_assignment(self):
+        return self.driver.find_element(*Paths.start_assignment)

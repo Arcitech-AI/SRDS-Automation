@@ -1,13 +1,5 @@
-import os
 import time
-import pytest
 
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver import ActionChains
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support import select
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from Object.homepage import Paths
 from Utilities.baseclass import *
 from testdata.testcase_data import *
@@ -18,7 +10,8 @@ class TestLoginStudent(Baseclass):
     def test_check_url(self):
         log = self.getLogger()
         log.info("----- %s -----" % self.get_url())
-        assert "https://qat.srds.ai/" == self.get_url()
+        assert "https://pre.srds.ai/" == self.get_url()
+        # assert "https://srds.ai/" == self.get_url()
 
     def test_student_empty_username(self):
         obj = Paths(self.driver)
@@ -36,19 +29,11 @@ class TestLoginStudent(Baseclass):
         time.sleep(0.2)
 
     def test_student_positive_login(self):
-        file_path = "C:\\Users\\Admin\\PycharmProjects\\SRDS\\Prod\\last_student_email_index.txt"
+        email = "omkarhundre+01@arcitech.ai"
         obj = Paths(self.driver)
-        self.driver.refresh()
-
-        def read_file(path_file):
-            with open(path_file, 'r') as file:
-                data = file.read()
-            return data
-
-        file_data = read_file(file_path)
         self.clear_field(obj.enter_email())
         time.sleep(0.2)
-        obj.enter_email().send_keys(file_data)
+        obj.enter_email().send_keys(email)
         obj.click_code_button().click()
 
         # Verification code
@@ -61,8 +46,8 @@ class TestLoginStudent(Baseclass):
             otp_inp.send_keys(str(otp))
 
         obj.final_login_btn().click()
+        self.getLogger().info(f"Congratulation {email} has been successfully login.")
         time.sleep(2)
-        self.getLogger().info(f"Login attempt successful with email: {file_data}")
 
     @pytest.fixture(params=Data.getTestData("user", "../testcases/login.xlsx"))
     def username_field(self, request):
