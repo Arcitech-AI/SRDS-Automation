@@ -296,3 +296,6 @@ class Baseclass:
 
     def delete_to_course(self):
         return self.driver.find_element(By.XPATH, "//p[normalize-space()='Delete']")
+
+    def next_question(self):
+        return self.driver.find_element(By.XPATH, "//button[normalize-space()='Next']")

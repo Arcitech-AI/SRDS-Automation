@@ -197,6 +197,11 @@ class Paths:
     mcq_assignment = (By.XPATH, "(//button[@class='maltiple-assignment-start-btn'][normalize-space()='Start Assignment'])[6]")
     start_assignment = (By.XPATH, "//button[contains(text(),'Start Assignment')]")
 
+    # MCQ assignment questions
+    copy_1st_question = (By.XPATH, "//div[@class='AssingmentMCQs-mock-test-question-answer-container']")
+    all_options = (By.XPATH, "//div[@class='options AssingmentMCQs-mock-test-answer-container']")
+
+
     def start_button(self):
         return self.driver.find_element(*Paths.click_button)
 
@@ -571,10 +576,18 @@ class Paths:
         return self.driver.find_element(*Paths.start_lesson)
 
     def click_on_the_assignments(self):
-        return self.driver.find_element(*Paths.assignments_btn)
+        return self.driver.find_element(*Paths.click_on_assignment_btn)
 
     def click_mcq_assignment(self):
         return self.driver.find_element(*Paths.mcq_assignment)
 
     def click_start_assignment(self):
         return self.driver.find_element(*Paths.start_assignment)
+
+    # Assignments questions and answers
+
+    def mcq_first_question(self):
+        return self.driver.find_element(*Paths.copy_1st_question)
+
+    def get_submit_button(self):
+        return self.driver.find_element(*Paths.all_options)
